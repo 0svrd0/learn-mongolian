@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Learn from "./pages/Learn";
 import Games from "./pages/Games";
 import Story from "./pages/Story";
+import Lesson1 from "./pages/lesson/1";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/learn" element={<Learn />} />
           <Route path="/games" element={<Games />} />
           <Route path="/story" element={<Story />} />
+          <Route path="/lesson/1" element={<Lesson1 />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
