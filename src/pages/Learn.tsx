@@ -18,6 +18,54 @@ const Learn = () => {
       description: "Learn essential numbers and time-related vocabulary",
       completed: false,
     },
+    {
+      id: 3,
+      title: "Family",
+      description: "Learn words related to family members and relationships",
+      completed: false,
+    },
+    {
+      id: 4,
+      title: "Food and Drink",
+      description: "Learn vocabulary for different foods and beverages",
+      completed: false,
+    },
+    {
+      id: 5,
+      title: "Colors",
+      description: "Learn how to say different colors in Mongolian",
+      completed: false,
+    },
+    {
+      id: 6,
+      title: "Nature",
+      description: "Learn words related to nature and the environment",
+      completed: false,
+    },
+    {
+      id: 7,
+      title: "Transportation",
+      description: "Learn vocabulary for different modes of transport",
+      completed: false,
+    },
+    {
+      id: 8,
+      title: "Shopping",
+      description: "Learn essential shopping and payment vocabulary",
+      completed: false,
+    },
+    {
+      id: 9,
+      title: "Weather",
+      description: "Learn words to describe weather conditions",
+      completed: false,
+    },
+    {
+      id: 10,
+      title: "Daily Activities",
+      description: "Learn vocabulary for everyday actions and routines",
+      completed: false,
+    },
   ];
 
   return (
@@ -36,7 +84,7 @@ const Learn = () => {
           {lessons.map((lesson) => (
             <Card 
               key={lesson.id}
-              className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
+              className="p-6 hover:shadow-lg transition-shadow cursor-pointer bg-white"
               onClick={() => navigate(`/lesson/${lesson.id}`)}
             >
               <h2 className="text-2xl font-semibold text-mongol-blue mb-4">
