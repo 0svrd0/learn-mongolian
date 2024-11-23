@@ -8,11 +8,16 @@ const Learn = () => {
   const lessons = [
     {
       id: 1,
-      title: "Basic Greetings",
+      title: "Greetings and Basics",
       description: "Learn how to say hello and introduce yourself",
       completed: false,
     },
-    // More lessons will be added later
+    {
+      id: 2,
+      title: "Numbers and Time",
+      description: "Learn essential numbers and time-related vocabulary",
+      completed: false,
+    },
   ];
 
   return (
