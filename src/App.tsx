@@ -21,6 +21,16 @@ import Lesson7 from "./pages/lesson/7";
 import Lesson8 from "./pages/lesson/8";
 import Lesson9 from "./pages/lesson/9";
 import Lesson10 from "./pages/lesson/10";
+import Lesson11 from "./pages/lesson/11";
+import Lesson12 from "./pages/lesson/12";
+import Lesson13 from "./pages/lesson/13";
+import Lesson14 from "./pages/lesson/14";
+import Lesson15 from "./pages/lesson/15";
+import Lesson16 from "./pages/lesson/16";
+import Lesson17 from "./pages/lesson/17";
+import Lesson18 from "./pages/lesson/18";
+import Lesson19 from "./pages/lesson/19";
+import Lesson20 from "./pages/lesson/20";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +59,16 @@ const App = () => (
           <Route path="/lesson/8" element={<Lesson8 />} />
           <Route path="/lesson/9" element={<Lesson9 />} />
           <Route path="/lesson/10" element={<Lesson10 />} />
+          <Route path="/lesson/11" element={<Lesson11 />} />
+          <Route path="/lesson/12" element={<Lesson12 />} />
+          <Route path="/lesson/13" element={<Lesson13 />} />
+          <Route path="/lesson/14" element={<Lesson14 />} />
+          <Route path="/lesson/15" element={<Lesson15 />} />
+          <Route path="/lesson/16" element={<Lesson16 />} />
+          <Route path="/lesson/17" element={<Lesson17 />} />
+          <Route path="/lesson/18" element={<Lesson18 />} />
+          <Route path="/lesson/19" element={<Lesson19 />} />
+          <Route path="/lesson/20" element={<Lesson20 />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

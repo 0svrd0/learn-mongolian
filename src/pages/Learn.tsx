@@ -56,6 +56,56 @@ const Learn = () => {
       number: 10,
       title: "Daily Activities",
       description: "Discover vocabulary for common daily activities."
+    },
+    {
+      number: 11,
+      title: "Body Parts",
+      description: "Learn vocabulary for different parts of the body in Mongolian."
+    },
+    {
+      number: 12,
+      title: "Emotions",
+      description: "Express feelings and emotions in Mongolian."
+    },
+    {
+      number: 13,
+      title: "Occupations",
+      description: "Learn about different professions and jobs in Mongolian."
+    },
+    {
+      number: 14,
+      title: "Clothing",
+      description: "Discover vocabulary for different types of clothing."
+    },
+    {
+      number: 15,
+      title: "Animals",
+      description: "Learn names of various animals in Mongolian."
+    },
+    {
+      number: 16,
+      title: "Technology",
+      description: "Master modern technology vocabulary in Mongolian."
+    },
+    {
+      number: 17,
+      title: "Hobbies",
+      description: "Learn vocabulary related to different hobbies and activities."
+    },
+    {
+      number: 18,
+      title: "Travel",
+      description: "Essential vocabulary for traveling in Mongolia."
+    },
+    {
+      number: 19,
+      title: "Shapes and Sizes",
+      description: "Learn about different shapes and sizes in Mongolian."
+    },
+    {
+      number: 20,
+      title: "Verbs",
+      description: "Master essential verbs in Mongolian."
     }
   ];
 
@@ -93,7 +143,7 @@ const Learn = () => {
                   {lesson.number}
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-mongol-earth">
+                  <h2  className="text-xl font-semibold text-mongol-earth">
                     {lesson.title}
                   </h2>
                   <p className="text-sm text-mongol-charcoal/70 mt-1">
