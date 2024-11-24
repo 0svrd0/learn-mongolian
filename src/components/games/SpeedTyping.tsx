@@ -5,7 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { WORDS } from "@/data/vocabulary";
 
 const SpeedTyping = () => {
-  const [currentWord, setCurrentWord] = useState({ mongolian: "", meaning: "" });
+  const [currentWord, setCurrentWord] = useState({ pronunciation: "", meaning: "" });
   const [userInput, setUserInput] = useState("");
   const [timeLeft, setTimeLeft] = useState(30);
   const [score, setScore] = useState(0);
@@ -66,7 +66,7 @@ const SpeedTyping = () => {
         </Button>
       ) : (
         <div className="space-y-4">
-          <div className="text-lg">Translate: <span className="font-bold">{currentWord.mongolian}</span></div>
+          <div className="text-lg">Translate: <span className="font-bold">{currentWord.pronunciation}</span></div>
           <Input
             type="text"
             value={userInput}

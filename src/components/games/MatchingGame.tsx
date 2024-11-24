@@ -10,8 +10,7 @@ const MatchingGame = () => {
   const [cards, setCards] = useState<Array<{
     id: number;
     content: string;
-    type: "mongolian" | "meaning";
-    isFlipped: boolean;
+    type: "pronunciation" | "meaning";
     isMatched: boolean;
   }>>([]);
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
@@ -29,16 +28,14 @@ const MatchingGame = () => {
     const gameCards = levelWords.flatMap((word, index) => [
       {
         id: index * 2,
-        content: word.mongolian,
-        type: "mongolian" as const,
-        isFlipped: false,
+        content: word.pronunciation,
+        type: "pronunciation" as const,
         isMatched: false,
       },
       {
         id: index * 2 + 1,
         content: word.meaning,
         type: "meaning" as const,
-        isFlipped: false,
         isMatched: false,
       },
     ]);
@@ -47,13 +44,9 @@ const MatchingGame = () => {
   };
 
   const handleCardClick = (id: number) => {
-    if (selectedCards.length === 2 || cards[id].isMatched || cards[id].isFlipped) {
+    if (selectedCards.length === 2 || cards[id].isMatched) {
       return;
     }
-
-    const newCards = [...cards];
-    newCards[id].isFlipped = true;
-    setCards(newCards);
 
     if (selectedCards.length === 0) {
       setSelectedCards([id]);
@@ -64,16 +57,16 @@ const MatchingGame = () => {
       const secondCard = cards[id];
       
       if (
-        (firstCard.type === "mongolian" && secondCard.type === "meaning" ||
-         firstCard.type === "meaning" && secondCard.type === "mongolian") &&
+        (firstCard.type === "pronunciation" && secondCard.type === "meaning" ||
+         firstCard.type === "meaning" && secondCard.type === "pronunciation") &&
         WORDS.some(word => 
-          (word.mongolian === firstCard.content && word.meaning === secondCard.content) ||
-          (word.mongolian === secondCard.content && word.meaning === firstCard.content)
+          (word.pronunciation === firstCard.content && word.meaning === secondCard.content) ||
+          (word.pronunciation === secondCard.content && word.meaning === firstCard.content)
         )
       ) {
         // Match found
         setTimeout(() => {
-          const updatedCards = [...newCards];
+          const updatedCards = [...cards];
           updatedCards[selectedCards[0]].isMatched = true;
           updatedCards[id].isMatched = true;
           setCards(updatedCards);
@@ -98,10 +91,6 @@ const MatchingGame = () => {
       } else {
         // No match
         setTimeout(() => {
-          const updatedCards = [...newCards];
-          updatedCards[selectedCards[0]].isFlipped = false;
-          updatedCards[id].isFlipped = false;
-          setCards(updatedCards);
           setSelectedCards([]);
           setLives(lives - 1);
           
@@ -114,6 +103,7 @@ const MatchingGame = () => {
             setLevel(1);
             setLives(3);
             setScore(0);
+            initializeLevel();
           }
         }, 1000);
       }
@@ -141,15 +131,12 @@ const MatchingGame = () => {
         {cards.map((card) => (
           <Card
             key={card.id}
-            className={`p-4 h-32 flex items-center justify-center cursor-pointer transition-all transform hover:scale-105 ${
-              card.isFlipped ? "bg-white" : "bg-mongol-blue"
-            } ${card.isMatched ? "bg-green-100" : ""}`}
+            className={`p-4 h-32 flex items-center justify-center cursor-pointer transition-all transform hover:scale-105 
+              ${card.isMatched ? "bg-green-100" : "bg-white"}`}
             onClick={() => handleCardClick(card.id)}
           >
-            <span className={`text-center text-lg ${
-              card.isFlipped ? "text-mongol-blue" : "text-white"
-            }`}>
-              {card.isFlipped ? card.content : "?"}
+            <span className="text-center text-lg text-mongol-blue">
+              {card.content}
             </span>
           </Card>
         ))}

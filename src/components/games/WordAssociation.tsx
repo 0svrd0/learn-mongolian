@@ -4,8 +4,8 @@ import { useToast } from "@/components/ui/use-toast";
 import { WORDS } from "@/data/vocabulary";
 
 const WordAssociation = () => {
-  const [options, setOptions] = useState<Array<{ mongolian: string; meaning: string }>>([]);
-  const [currentWord, setCurrentWord] = useState({ mongolian: "", meaning: "" });
+  const [options, setOptions] = useState<Array<{ pronunciation: string; meaning: string }>>([]);
+  const [currentWord, setCurrentWord] = useState({ pronunciation: "", meaning: "" });
   const [score, setScore] = useState(0);
   const { toast } = useToast();
 
@@ -22,7 +22,7 @@ const WordAssociation = () => {
     if (meaning === currentWord.meaning) {
       toast({
         title: "Correct!",
-        description: `${currentWord.mongolian} means "${currentWord.meaning}"`,
+        description: `${currentWord.pronunciation} means "${currentWord.meaning}"`,
       });
       setScore(score + 1);
       getNewRound();
@@ -46,7 +46,7 @@ const WordAssociation = () => {
       <h2 className="text-2xl font-bold text-mongol-charcoal mb-4">Word Association</h2>
       <div className="text-xl font-bold text-mongol-earth mb-4">Score: {score}</div>
       <div className="text-lg mb-4">
-        Match the meaning: <span className="font-bold">{currentWord.mongolian}</span>
+        Match the meaning: <span className="font-bold">{currentWord.pronunciation}</span>
       </div>
       <div className="grid grid-cols-2 gap-4">
         {options.map((option, index) => (
