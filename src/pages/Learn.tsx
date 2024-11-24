@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Learn = () => {
   const navigate = useNavigate();
@@ -58,36 +60,54 @@ const Learn = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-mongol-sky/10 p-8">
+    <div className="min-h-screen bg-gradient-to-b from-mongol-sky/5 to-mongol-sky/20 p-8">
       <div className="container mx-auto">
-        <Button 
-          onClick={() => navigate("/")}
-          className="mb-8 bg-mongol-grass hover:bg-mongol-grass/80 text-white"
-        >
-          Back to Home
-        </Button>
+        <div className="flex items-center gap-4 mb-12">
+          <Button 
+            onClick={() => navigate("/")}
+            variant="ghost"
+            className="group"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
+            Back to Home
+          </Button>
+        </div>
 
-        <h1 className="text-4xl font-bold text-mongol-earth mb-4">Learn Mongolian</h1>
-        <p className="text-lg text-mongol-charcoal mb-8">
-          Explore the basics of the Mongolian language through interactive lessons and exercises.
-        </p>
+        <div className="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
+          <h1 className="text-5xl font-bold text-mongol-earth mb-6 tracking-tight">
+            Learn Mongolian
+          </h1>
+          <p className="text-xl text-mongol-charcoal/80">
+            Explore the basics of the Mongolian language through interactive lessons and exercises.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {lessons.map((lesson) => (
-            <div key={lesson.number} className="space-y-2">
-              <h2 className="text-2xl font-semibold text-mongol-earth">
-                Lesson {lesson.number}: {lesson.title}
-              </h2>
-              <p className="text-md text-mongol-charcoal">
-                {lesson.description}
-              </p>
+            <Card 
+              key={lesson.number} 
+              className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white/80 backdrop-blur-sm border-mongol-sky/20"
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-mongol-sky/10 text-mongol-earth font-semibold">
+                  {lesson.number}
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold text-mongol-earth">
+                    {lesson.title}
+                  </h2>
+                  <p className="text-sm text-mongol-charcoal/70 mt-1">
+                    {lesson.description}
+                  </p>
+                </div>
+              </div>
               <Button 
                 onClick={() => navigate(`/lesson/${lesson.number}`)}
-                className="bg-mongol-blue hover:bg-mongol-blue/80 text-white"
+                className="w-full bg-mongol-grass hover:bg-mongol-grass/90 text-white"
               >
-                Start Lesson {lesson.number}
+                Start Lesson
               </Button>
-            </div>
+            </Card>
           ))}
         </div>
       </div>
