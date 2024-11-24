@@ -25,11 +25,13 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         mongol: {
-          blue: "#2B3A67",
-          red: "#E94F37",
-          cream: "#F6F7EB",
-          gold: "#F7B267",
-          navy: "#1D2951"
+          sky: "#87CEEB",     // Sky Blue
+          grass: "#8FBC8F",   // Grassland Green
+          gold: "#FFD700",    // Golden Yellow
+          earth: "#8B4513",   // Earth Brown
+          white: "#FFFFFF",   // Snow White
+          charcoal: "#2F4F4F", // Charcoal Grey
+          red: "#D2691E",     // Warm Red
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
