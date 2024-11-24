@@ -12,11 +12,38 @@ const Lesson1 = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   const playAudio = () => {
+    const currentWord = LESSON1_WORDS[currentWordIndex];
+    if (!currentWord.audio) {
+      toast({
+        title: "Audio not available",
+        description: "Sorry, this word doesn't have audio yet.",
+      });
+      return;
+    }
+
     setIsAudioPlaying(true);
-    setTimeout(() => setIsAudioPlaying(false), 2000);
-    toast({
-      title: "Playing audio...",
-      description: "Audio feature coming soon!",
+    const audio = new Audio(currentWord.audio);
+    
+    audio.addEventListener('ended', () => {
+      setIsAudioPlaying(false);
+    });
+
+    audio.addEventListener('error', () => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Failed to play audio file.",
+        variant: "destructive",
+      });
+    });
+
+    audio.play().catch((error) => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Failed to play audio file.",
+        variant: "destructive",
+      });
     });
   };
 

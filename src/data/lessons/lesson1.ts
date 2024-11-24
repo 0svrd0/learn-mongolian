@@ -18,5 +18,5 @@ export const LESSON1_WORDS = [
   { mongolian: "Тэр", pronunciation: "Ter", meaning: "He/She", audio: "/audio/lesson1/he:she.mp3" },
   { mongolian: "Бид", pronunciation: "Bid", meaning: "We", audio: "/audio/lesson1/we.mp3" },
   { mongolian: "Та", pronunciation: "Ta", meaning: "Formal 'You'", audio: "/audio/lesson1/formal you.mp3" },
-  { mongolian: "Яах вэ", pronunciation: "Yaakh ve?", meaning: "What to do?", audio: "" },
+  { mongolian: "Яах вэ", pronunciation: "Yaakh ve?", meaning: "What to do?", audio: "/audio/lesson1/what to do.mp3" },
 ];
