@@ -60,6 +60,10 @@ const Games = () => {
     }
   ];
 
+  const ActiveGameComponent = activeGame 
+    ? games.find(game => game.id === activeGame)?.component 
+    : null;
+
   return (
     <div className="min-h-screen bg-mongol-white p-8">
       <div className="container mx-auto">
@@ -98,8 +102,7 @@ const Games = () => {
           </>
         ) : (
           <div className="animate-fadeIn">
-            {games.find(game => game.id === activeGame)?.component && 
-              <games.find(game => game.id === activeGame)!.component />}
+            {ActiveGameComponent && <ActiveGameComponent />}
           </div>
         )}
       </div>
