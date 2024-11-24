@@ -1,35 +1,9 @@
-Share
-
-
-You said:
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
-const GREETINGS = [
-  { mongolian: "Сайн уу", pronunciation: "Sain uu", meaning: "Hello" },
-  { mongolian: "Сайн байна уу", pronunciation: "Sain baina uu", meaning: "How are you?" },
-  { mongolian: "Баярлалаа", pronunciation: "Bayarlalaa", meaning: "Thank you" },
-  { mongolian: "Үгүй", pronunciation: "Ügüi", meaning: "No" },
-  { mongolian: "Тийм", pronunciation: "Tiim", meaning: "Yes" },
-  { mongolian: "Сайн", pronunciation: "Sain", meaning: "Good" },
-  { mongolian: "Буруу", pronunciation: "Buruu", meaning: "Wrong" },
-  { mongolian: "Зөв", pronunciation: "Zöv", meaning: "Correct" },
-  { mongolian: "Тавтай морил", pronunciation: "Tavtai moril", meaning: "Welcome" },
-  { mongolian: "Баяртай", pronunciation: "Bayartai", meaning: "Goodbye" },
-  { mongolian: "Уучлаарай", pronunciation: "Uuchlaarai", meaning: "Sorry" },
-  { mongolian: "Ойлгосон", pronunciation: "Oilgoson", meaning: "Understood" },
-  { mongolian: "Ойлгохгүй", pronunciation: "Oiloghui", meaning: "I don't understand" },
-  { mongolian: "Нэр", pronunciation: "Ner", meaning: "Name" },
-  { mongolian: "Би", pronunciation: "Bi", meaning: "I" },
-  { mongolian: "Чи", pronunciation: "Chi", meaning: "You" },
-  { mongolian: "Тэр", pronunciation: "Ter", meaning: "He/She" },
-  { mongolian: "Бид", pronunciation: "Bid", meaning: "We" },
-  { mongolian: "Та", pronunciation: "Ta", meaning: "Formal 'You'" },
-  { mongolian: "Яах вэ", pronunciation: "Yaakh ve?", meaning: "What to do?" }
-];
+import { LESSON1_WORDS } from "@/data/lessons/lesson1";
 
 const Lesson1 = () => {
   const { toast } = useToast();
@@ -39,7 +13,6 @@ const Lesson1 = () => {
 
   const playAudio = () => {
     setIsAudioPlaying(true);
-    // Audio implementation will be added in future updates
     setTimeout(() => setIsAudioPlaying(false), 2000);
     toast({
       title: "Playing audio...",
@@ -48,14 +21,16 @@ const Lesson1 = () => {
   };
 
   const nextWord = () => {
-    setCurrentWordIndex((prev) => (prev + 1) % GREETINGS.length);
+    setCurrentWordIndex((prev) => (prev + 1) % LESSON1_WORDS.length);
   };
 
   const previousWord = () => {
-    setCurrentWordIndex((prev) => (prev - 1 + GREETINGS.length) % GREETINGS.length);
+    setCurrentWordIndex((prev) => 
+      (prev - 1 + LESSON1_WORDS.length) % LESSON1_WORDS.length
+    );
   };
 
-  const currentWord = GREETINGS[currentWordIndex];
+  const currentWord = LESSON1_WORDS[currentWordIndex];
 
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
@@ -147,7 +122,7 @@ const Lesson1 = () => {
 
         <div className="mt-8">
           <p className="text-sm text-gray-500 text-center">
-            Progress: {currentWordIndex + 1} / {GREETINGS.length}
+            Progress: {currentWordIndex + 1} / {LESSON1_WORDS.length}
           </p>
         </div>
       </div>
@@ -155,4 +130,4 @@ const Lesson1 = () => {
   );
 };
 
-export default Lesson1
+export default Lesson1;
