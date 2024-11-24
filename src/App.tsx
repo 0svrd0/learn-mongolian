@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import Learn from "./pages/Learn";
 import Games from "./pages/Games";
 import Story from "./pages/Story";
+import Story1 from "./pages/stories/Story1";
+import Story2 from "./pages/stories/Story2";
+import Story3 from "./pages/stories/Story3";
+import Story4 from "./pages/stories/Story4";
 import Lesson1 from "./pages/lesson/1";
 import Lesson2 from "./pages/lesson/2";
 import Lesson3 from "./pages/lesson/3";
@@ -31,6 +35,10 @@ const App = () => (
           <Route path="/learn" element={<Learn />} />
           <Route path="/games" element={<Games />} />
           <Route path="/story" element={<Story />} />
+          <Route path="/story/1" element={<Story1 />} />
+          <Route path="/story/2" element={<Story2 />} />
+          <Route path="/story/3" element={<Story3 />} />
+          <Route path="/story/4" element={<Story4 />} />
           <Route path="/lesson/1" element={<Lesson1 />} />
           <Route path="/lesson/2" element={<Lesson2 />} />
           <Route path="/lesson/3" element={<Lesson3 />} />
