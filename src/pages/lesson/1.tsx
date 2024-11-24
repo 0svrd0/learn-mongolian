@@ -5,26 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const GREETINGS = [
-  { mongolian: "Сайн уу", pronunciation: "Sain uu", meaning: "Hello" },
-  { mongolian: "Сайн байна уу", pronunciation: "Sain baina uu", meaning: "How are you?" },
-  { mongolian: "Баярлалаа", pronunciation: "Bayarlalaa", meaning: "Thank you" },
-  { mongolian: "Үгүй", pronunciation: "Ügüi", meaning: "No" },
-  { mongolian: "Тийм", pronunciation: "Tiim", meaning: "Yes" },
-  { mongolian: "Сайн", pronunciation: "Sain", meaning: "Good" },
-  { mongolian: "Буруу", pronunciation: "Buruu", meaning: "Wrong" },
-  { mongolian: "Зөв", pronunciation: "Zöv", meaning: "Correct" },
-  { mongolian: "Тавтай морил", pronunciation: "Tavtai moril", meaning: "Welcome" },
-  { mongolian: "Баяртай", pronunciation: "Bayartai", meaning: "Goodbye" },
-  { mongolian: "Уучлаарай", pronunciation: "Uuchlaarai", meaning: "Sorry" },
-  { mongolian: "Ойлгосон", pronunciation: "Oilgoson", meaning: "Understood" },
-  { mongolian: "Ойлгохгүй", pronunciation: "Oiloghui", meaning: "I don't understand" },
-  { mongolian: "Нэр", pronunciation: "Ner", meaning: "Name" },
-  { mongolian: "Би", pronunciation: "Bi", meaning: "I" },
-  { mongolian: "Чи", pronunciation: "Chi", meaning: "You" },
-  { mongolian: "Тэр", pronunciation: "Ter", meaning: "He/She" },
-  { mongolian: "Бид", pronunciation: "Bid", meaning: "We" },
-  { mongolian: "Та", pronunciation: "Ta", meaning: "Formal 'You'" },
-  { mongolian: "Яах вэ", pronunciation: "Yaakh ve?", meaning: "What to do?" }
+  { mongolian: "Сайн уу", pronunciation: "Sain uu", meaning: "Hello", audio: "/audio/lesson1/sain_uu.mp3" },
+  { mongolian: "Сайн байна уу", pronunciation: "Sain baina uu", meaning: "How are you?", audio: "/audio/lesson1/sain_baina_uu.mp3" },
+  { mongolian: "Баярлалаа", pronunciation: "Bayarlalaa", meaning: "Thank you", audio: "/audio/lesson1/bayarlalaa.mp3" },
+  { mongolian: "Үгүй", pronunciation: "Ügüi", meaning: "No", audio: "/audio/lesson1/ugui.mp3" },
+  { mongolian: "Тийм", pronunciation: "Tiim", meaning: "Yes", audio: "/audio/lesson1/tiim.mp3" },
+  { mongolian: "Сайн", pronunciation: "Sain", meaning: "Good", audio: "/audio/lesson1/sain.mp3" },
+  { mongolian: "Буруу", pronunciation: "Buruu", meaning: "Wrong", audio: "/audio/lesson1/buruu.mp3" },
+  { mongolian: "Зөв", pronunciation: "Zöv", meaning: "Correct", audio: "/audio/lesson1/zov.mp3" },
+  { mongolian: "Тавтай морил", pronunciation: "Tavtai moril", meaning: "Welcome", audio: "/audio/lesson1/tavtai_moril.mp3" },
+  { mongolian: "Баяртай", pronunciation: "Bayartai", meaning: "Goodbye", audio: "/audio/lesson1/bayartai.mp3" },
 ];
 
 const Lesson1 = () => {
@@ -33,13 +23,26 @@ const Lesson1 = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
+  const currentWord = GREETINGS[currentWordIndex];
+
   const playAudio = () => {
+    if (!currentWord.audio) {
+      toast({
+        title: "Audio not available",
+        description: "No audio file found for this word.",
+        variant: "error",
+      });
+      return;
+    }
+
+    const audio = new Audio(currentWord.audio);
     setIsAudioPlaying(true);
-    // Audio implementation will be added in future updates
-    setTimeout(() => setIsAudioPlaying(false), 2000);
+    audio.play();
+    audio.onended = () => setIsAudioPlaying(false);
+
     toast({
       title: "Playing audio...",
-      description: "Audio feature coming soon!",
+      description: `Now playing: ${currentWord.pronunciation}`,
     });
   };
 
@@ -50,8 +53,6 @@ const Lesson1 = () => {
   const previousWord = () => {
     setCurrentWordIndex((prev) => (prev - 1 + GREETINGS.length) % GREETINGS.length);
   };
-
-  const currentWord = GREETINGS[currentWordIndex];
 
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
