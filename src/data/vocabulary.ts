@@ -1,5 +1,5 @@
-export const WORDS = [
-  // Lesson 1: Greetings
+// Individual lesson vocabularies
+export const LESSON1_WORDS = [
   { mongolian: "Сайн уу", pronunciation: "Sain uu", meaning: "Hello" },
   { mongolian: "Сайн байна уу", pronunciation: "Sain baina uu", meaning: "How are you?" },
   { mongolian: "Баярлалаа", pronunciation: "Bayarlalaa", meaning: "Thank you" },
@@ -20,8 +20,9 @@ export const WORDS = [
   { mongolian: "Бид", pronunciation: "Bid", meaning: "We" },
   { mongolian: "Та", pronunciation: "Ta", meaning: "Formal 'You'" },
   { mongolian: "Яах вэ", pronunciation: "Yaakh ve?", meaning: "What to do?" },
+];
 
-  // Lesson 2: Numbers and Time
+export const LESSON2_WORDS = [
   { mongolian: "Нэг", pronunciation: "Neg", meaning: "One" },
   { mongolian: "Хоёр", pronunciation: "Khoir", meaning: "Two" },
   { mongolian: "Гурав", pronunciation: "Gurav", meaning: "Three" },
@@ -42,8 +43,9 @@ export const WORDS = [
   { mongolian: "Долоо хоног", pronunciation: "Doloo khonog", meaning: "Week" },
   { mongolian: "Сар", pronunciation: "Sar", meaning: "Month" },
   { mongolian: "Жил", pronunciation: "Jil", meaning: "Year" },
+];
 
-  // Lesson 3: Family
+export const LESSON3_WORDS = [
   { mongolian: "Аав", pronunciation: "Aav", meaning: "Father" },
   { mongolian: "Ээж", pronunciation: "Eej", meaning: "Mother" },
   { mongolian: "Ах", pronunciation: "Akh", meaning: "Older brother" },
@@ -64,8 +66,9 @@ export const WORDS = [
   { mongolian: "Хүүгийн", pronunciation: "Khüügiin", meaning: "Male child's" },
   { mongolian: "Охины", pronunciation: "Okhiny", meaning: "Female child's" },
   { mongolian: "Гэрлэлт", pronunciation: "Gerleet", meaning: "Marriage" },
+];
 
-  // Lesson 4: Food and Drink
+export const LESSON4_WORDS = [
   { mongolian: "Хоол", pronunciation: "Khool", meaning: "Food" },
   { mongolian: "Ус", pronunciation: "Us", meaning: "Water" },
   { mongolian: "Цай", pronunciation: "Tsai", meaning: "Tea" },
@@ -86,8 +89,9 @@ export const WORDS = [
   { mongolian: "Дарс", pronunciation: "Dars", meaning: "Wine" },
   { mongolian: "Хоолны газар", pronunciation: "Khoolny gazar", meaning: "Restaurant" },
   { mongolian: "Цайны газар", pronunciation: "Tsainy gazar", meaning: "Café" },
+];
 
-  // Lesson 5: Colors
+export const LESSON5_WORDS = [
   { mongolian: "Улаан", pronunciation: "Ulaan", meaning: "Red" },
   { mongolian: "Хөх", pronunciation: "Khökh", meaning: "Blue" },
   { mongolian: "Шар", pronunciation: "Shar", meaning: "Yellow" },
@@ -103,8 +107,9 @@ export const WORDS = [
   { mongolian: "Мөнгөн", pronunciation: "Möngön", meaning: "Silver" },
   { mongolian: "Хүрэн", pronunciation: "Khüren", meaning: "Brown" },
   { mongolian: "Цэнхэр", pronunciation: "Tsenher", meaning: "Light blue" },
+];
 
-  // Lesson 6: Nature
+export const LESSON6_WORDS = [
   { mongolian: "Нар", pronunciation: "Nar", meaning: "Sun" },
   { mongolian: "Сар", pronunciation: "Sar", meaning: "Moon" },
   { mongolian: "Од", pronunciation: "Od", meaning: "Star" },
@@ -125,8 +130,9 @@ export const WORDS = [
   { mongolian: "Гови", pronunciation: "Govi", meaning: "Desert" },
   { mongolian: "Тал", pronunciation: "Tal", meaning: "Steppe" },
   { mongolian: "Ургамал", pronunciation: "Urgamal", meaning: "Plant" },
+];
 
-  // Lesson 7: Transportation
+export const LESSON7_WORDS = [
   { mongolian: "Машин", pronunciation: "Mashin", meaning: "Car" },
   { mongolian: "Автобус", pronunciation: "Avtobus", meaning: "Bus" },
   { mongolian: "Галт тэрэг", pronunciation: "Galt tereg", meaning: "Train" },
@@ -142,8 +148,9 @@ export const WORDS = [
   { mongolian: "Гүүр", pronunciation: "Güür", meaning: "Bridge" },
   { mongolian: "Буудал", pronunciation: "Buudal", meaning: "Station" },
   { mongolian: "Нисэх онгоцны буудал", pronunciation: "Nisekh ongotsny buudal", meaning: "Airport" },
+];
 
-  // Lesson 8: Shopping
+export const LESSON8_WORDS = [
   { mongolian: "Дэлгүүр", pronunciation: "Delgüür", meaning: "Shop/Store" },
   { mongolian: "Үнэ", pronunciation: "Üne", meaning: "Price" },
   { mongolian: "Мөнгө", pronunciation: "Möngö", meaning: "Money" },
@@ -159,8 +166,9 @@ export const WORDS = [
   { mongolian: "Хямдрал", pronunciation: "Khyamdral", meaning: "Discount" },
   { mongolian: "Сагс", pronunciation: "Sags", meaning: "Shopping basket" },
   { mongolian: "Тасалбар", pronunciation: "Tasalbar", meaning: "Ticket" },
+];
 
-  // Lesson 9: Weather
+export const LESSON9_WORDS = [
   { mongolian: "Цаг агаар", pronunciation: "Tsag agaar", meaning: "Weather" },
   { mongolian: "Халуун", pronunciation: "Khaluun", meaning: "Hot" },
   { mongolian: "Хүйтэн", pronunciation: "Khüiten", meaning: "Cold" },
@@ -176,8 +184,9 @@ export const WORDS = [
   { mongolian: "Манан", pronunciation: "Manan", meaning: "Fog" },
   { mongolian: "Шуурга", pronunciation: "Shuurga", meaning: "Storm" },
   { mongolian: "Мөндөр", pronunciation: "Möndör", meaning: "Hail" },
+];
 
-  // Lesson 10: Daily Activities
+export const LESSON10_WORDS = [
   { mongolian: "Би цагаа удирдана", pronunciation: "Bi tsagaa udirdana", meaning: "I will manage time" },
   { mongolian: "Сурна", pronunciation: "Surna", meaning: "To learn" },
   { mongolian: "Унтах", pronunciation: "Untakh", meaning: "To sleep" },
@@ -188,8 +197,9 @@ export const WORDS = [
   { mongolian: "Цаг төлөвлөх", pronunciation: "Tsag tölövlukh", meaning: "To plan time" },
   { mongolian: "Тоглох", pronunciation: "Toglokh", meaning: "To play" },
   { mongolian: "Сонирхох", pronunciation: "Sonirkhokh", meaning: "To be interested" },
+];
 
-  // Lesson 11: Body Parts
+export const LESSON11_WORDS = [
   { mongolian: "Толгой", pronunciation: "tolgoi", meaning: "Head" },
   { mongolian: "Нүд", pronunciation: "nüd", meaning: "Eye" },
   { mongolian: "Чих", pronunciation: "chikh", meaning: "Ear" },
@@ -210,8 +220,9 @@ export const WORDS = [
   { mongolian: "Ходоод", pronunciation: "khodood", meaning: "Stomach" },
   { mongolian: "Мөч", pronunciation: "möch", meaning: "Limb" },
   { mongolian: "Нүүр", pronunciation: "nüür", meaning: "Face" },
+];
 
-  // Lesson 12: Emotions
+export const LESSON12_WORDS = [
   { mongolian: "Аз жаргал", pronunciation: "az jargal", meaning: "Happiness" },
   { mongolian: "Уур", pronunciation: "uur", meaning: "Anger" },
   { mongolian: "Гуниг", pronunciation: "gunig", meaning: "Sadness" },
@@ -232,8 +243,9 @@ export const WORDS = [
   { mongolian: "Баяр", pronunciation: "bayar", meaning: "Joy" },
   { mongolian: "Гайхширал", pronunciation: "gaikhshiral", meaning: "Surprise" },
   { mongolian: "Тайван", pronunciation: "taivan", meaning: "Calm" },
+];
 
-  // Lesson 13: Occupations
+export const LESSON13_WORDS = [
   { mongolian: "Эмч", pronunciation: "emch", meaning: "Doctor" },
   { mongolian: "Сувилагч", pronunciation: "suvilagch", meaning: "Nurse" },
   { mongolian: "Багш", pronunciation: "bagsh", meaning: "Teacher" },
@@ -254,8 +266,9 @@ export const WORDS = [
   { mongolian: "Орчуулагч", pronunciation: "orchuulagch", meaning: "Translator" },
   { mongolian: "Журналист", pronunciation: "jurnalist", meaning: "Journalist" },
   { mongolian: "Удирдагч", pronunciation: "udirdagch", meaning: "Leader" },
+];
 
-  // Lesson 14: Clothing
+export const LESSON14_WORDS = [
   { mongolian: "Гутал", pronunciation: "gutal", meaning: "Shoes" },
   { mongolian: "Цамц", pronunciation: "tsamts", meaning: "Shirt" },
   { mongolian: "Өмд", pronunciation: "ömd", meaning: "Pants" },
@@ -276,8 +289,9 @@ export const WORDS = [
   { mongolian: "Бугуйвч", pronunciation: "buguivch", meaning: "Bracelet" },
   { mongolian: "Цаг", pronunciation: "tsag", meaning: "Watch" },
   { mongolian: "Жижиг цүнх", pronunciation: "jijig tsünkh", meaning: "Purse" },
+];
 
-  // Lesson 15: Animals
+export const LESSON15_WORDS = [
   { mongolian: "Нохой", pronunciation: "nokhoi", meaning: "Dog" },
   { mongolian: "Муур", pronunciation: "müür", meaning: "Cat" },
   { mongolian: "Морь", pronunciation: "mor’", meaning: "Horse" },
@@ -298,8 +312,9 @@ export const WORDS = [
   { mongolian: "Хулгана", pronunciation: "khulgana", meaning: "Mouse" },
   { mongolian: "Шувуу", pronunciation: "shuvuu", meaning: "Bird" },
   { mongolian: "Бурхнаас эрсэн загас", pronunciation: "burkhnaas ersen zagas", meaning: "Goldfish" },
+];
 
-  // Lesson 16: Technology
+export const LESSON16_WORDS = [
   { mongolian: "Гар утас", pronunciation: "gar utas", meaning: "Mobile phone" },
   { mongolian: "Компьютер", pronunciation: "kompyuter", meaning: "Computer" },
   { mongolian: "Дэлгэц", pronunciation: "delgets", meaning: "Screen" },
@@ -320,8 +335,9 @@ export const WORDS = [
   { mongolian: "Таблет", pronunciation: "tablet", meaning: "Tablet" },
   { mongolian: "Ухаалаг утас", pronunciation: "ukhaalag utas", meaning: "Smartphone" },
   { mongolian: "Чип", pronunciation: "chip", meaning: "Chip" },
+];
 
-  // Lesson 17: Hobbies
+export const LESSON17_WORDS = [
   { mongolian: "Ном унших", pronunciation: "nom unshikh", meaning: "Reading" },
   { mongolian: "Зураг зурах", pronunciation: "zurag zurakh", meaning: "Drawing" },
   { mongolian: "Бичих", pronunciation: "bichikh", meaning: "Writing" },
@@ -342,8 +358,9 @@ export const WORDS = [
   { mongolian: "Зураг авах", pronunciation: "zurag avakh", meaning: "Taking photos" },
   { mongolian: "Дуран харах", pronunciation: "duran kharakh", meaning: "Stargazing" },
   { mongolian: "Усан санд сэлэх", pronunciation: "usan sand selekh", meaning: "Swimming" },
+];
 
-  // Lesson 18: Travel
+export const LESSON18_WORDS = [
   { mongolian: "Онгоц", pronunciation: "ongots", meaning: "Plane" },
   { mongolian: "Галт тэрэг", pronunciation: "galt tereg", meaning: "Train" },
   { mongolian: "Хөлөг онгоц", pronunciation: "khölög ongots", meaning: "Ship" },
@@ -364,8 +381,9 @@ export const WORDS = [
   { mongolian: "Газрын тос", pronunciation: "gazriin tos", meaning: "Petrol" },
   { mongolian: "Галт тэрэгний буудал", pronunciation: "galt teregnii buudal", meaning: "Train station" },
   { mongolian: "Картаар төлөх", pronunciation: "kartaar tölökh", meaning: "Pay by card" },
+];
 
-  // Lesson 19: Shapes and Sizes
+export const LESSON19_WORDS = [
   { mongolian: "Тойрог", pronunciation: "toirog", meaning: "Circle" },
   { mongolian: "Дөрвөлжин", pronunciation: "dörvöljin", meaning: "Square" },
   { mongolian: "Гурвалжин", pronunciation: "gurwaljin", meaning: "Triangle" },
@@ -386,8 +404,9 @@ export const WORDS = [
   { mongolian: "Муруй", pronunciation: "murui", meaning: "Curved" },
   { mongolian: "Өнцөг", pronunciation: "öntsög", meaning: "Angle" },
   { mongolian: "Тэгш өнцөгт", pronunciation: "tegsh öntsögt", meaning: "Rectangle" },
+];
 
-  // Lesson 20: Verbs
+export const LESSON20_WORDS = [
   { mongolian: "Ярих", pronunciation: "yarikh", meaning: "To speak" },
   { mongolian: "Сонсох", pronunciation: "sonsoh", meaning: "To listen" },
   { mongolian: "Харах", pronunciation: "kharakh", meaning: "To look" },
@@ -408,4 +427,28 @@ export const WORDS = [
   { mongolian: "Заах", pronunciation: "zaakh", meaning: "To teach" },
   { mongolian: "Авах", pronunciation: "avakh", meaning: "To take" },
   { mongolian: "Өгөх", pronunciation: "ögökh", meaning: "To give" }
+];
+
+// Combined vocabulary for reference
+export const WORDS = [
+  ...LESSON1_WORDS,
+  ...LESSON2_WORDS,
+  ...LESSON3_WORDS,
+  ...LESSON4_WORDS,
+  ...LESSON5_WORDS,
+  ...LESSON6_WORDS,
+  ...LESSON7_WORDS,
+  ...LESSON8_WORDS,
+  ...LESSON9_WORDS,
+  ...LESSON10_WORDS,
+  ...LESSON11_WORDS,
+  ...LESSON12_WORDS,
+  ...LESSON13_WORDS,
+  ...LESSON14_WORDS,
+  ...LESSON15_WORDS,
+  ...LESSON16_WORDS,
+  ...LESSON17_WORDS,
+  ...LESSON18_WORDS,
+  ...LESSON19_WORDS,
+  ...LESSON20_WORDS,
 ];
