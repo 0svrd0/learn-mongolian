@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const GREETINGS = [
-  { mongolian: "Сайн уу", pronunciation: "Sain uu", meaning: "Hello", audio: "/audio/lesson1/sain_uu.mp3" },
+  { mongolian: "Сайн уу", pronunciation: "Sain uu", meaning: "Hello", audio: "public/audio/lesson1/hello.mp3" },
   { mongolian: "Сайн байна уу", pronunciation: "Sain baina uu", meaning: "How are you?", audio: "/audio/lesson1/sain_baina_uu.mp3" },
   { mongolian: "Баярлалаа", pronunciation: "Bayarlalaa", meaning: "Thank you", audio: "/audio/lesson1/bayarlalaa.mp3" },
   { mongolian: "Үгүй", pronunciation: "Ügüi", meaning: "No", audio: "/audio/lesson1/ugui.mp3" },
