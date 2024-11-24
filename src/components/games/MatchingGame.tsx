@@ -15,18 +15,18 @@ const MatchingGame = () => {
     isMatched: boolean;
   }>>([]);
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
+  const [level, setLevel] = useState(1);
+  const [lives, setLives] = useState(3);
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(() => {
-    return Number(sessionStorage.getItem("matchingGameBestScore")) || 0;
-  });
 
   useEffect(() => {
-    initializeGame();
-  }, []);
+    initializeLevel();
+  }, [level]);
 
-  const initializeGame = () => {
-    const wordPairs = shuffle(WORDS).slice(0, 8);
-    const gameCards = wordPairs.flatMap((word, index) => [
+  const initializeLevel = () => {
+    const startIndex = (level - 1) * 10;
+    const levelWords = WORDS.slice(startIndex, startIndex + 10);
+    const gameCards = levelWords.flatMap((word, index) => [
       {
         id: index * 2,
         content: word.mongolian,
@@ -43,7 +43,6 @@ const MatchingGame = () => {
       },
     ]);
     setCards(shuffle(gameCards));
-    setScore(0);
     setSelectedCards([]);
   };
 
@@ -79,23 +78,21 @@ const MatchingGame = () => {
           updatedCards[id].isMatched = true;
           setCards(updatedCards);
           setSelectedCards([]);
-          const newScore = score + 10;
-          setScore(newScore);
-          
-          if (newScore > bestScore) {
-            setBestScore(newScore);
-            sessionStorage.setItem("matchingGameBestScore", String(newScore));
-            toast({
-              title: "New High Score!",
-              description: `You've achieved a new personal best: ${newScore}`,
-            });
-          }
+          setScore(score + 10);
 
           if (updatedCards.every(card => card.isMatched)) {
-            toast({
-              title: "Congratulations!",
-              description: "You've completed the matching game!",
-            });
+            if (level === 10) {
+              toast({
+                title: "Congratulations!",
+                description: "You've completed all levels! Final score: " + (score + 10),
+              });
+            } else {
+              toast({
+                title: "Level Complete!",
+                description: "Moving to level " + (level + 1),
+              });
+              setLevel(level + 1);
+            }
           }
         }, 1000);
       } else {
@@ -106,19 +103,37 @@ const MatchingGame = () => {
           updatedCards[id].isFlipped = false;
           setCards(updatedCards);
           setSelectedCards([]);
-          setScore(Math.max(0, score - 2));
+          setLives(lives - 1);
+          
+          if (lives <= 1) {
+            toast({
+              title: "Game Over!",
+              description: "You've run out of lives. Final score: " + score,
+              variant: "destructive",
+            });
+            setLevel(1);
+            setLives(3);
+            setScore(0);
+          }
         }, 1000);
       }
     }
   };
 
+  const restartGame = () => {
+    setLevel(1);
+    setLives(3);
+    setScore(0);
+    initializeLevel();
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-3xl font-bold text-mongol-blue">Matching Game</h2>
+        <h2 className="text-3xl font-bold text-mongol-blue">Level {level}</h2>
         <div className="space-x-4">
+          <span className="text-lg">Lives: {"❤️".repeat(lives)}</span>
           <span className="text-lg">Score: {score}</span>
-          <span className="text-lg">Best: {bestScore}</span>
         </div>
       </div>
 
@@ -141,10 +156,10 @@ const MatchingGame = () => {
       </div>
 
       <Button
-        onClick={initializeGame}
+        onClick={restartGame}
         className="w-full bg-mongol-blue hover:bg-mongol-navy text-white"
       >
-        New Game
+        Restart Game
       </Button>
     </div>
   );

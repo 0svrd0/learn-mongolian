@@ -40,9 +40,13 @@ const SpeedTyping = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
-    if (e.target.value.toLowerCase() === currentWord.mongolian.toLowerCase()) {
+    if (e.target.value.toLowerCase() === currentWord.meaning.toLowerCase()) {
       setScore(score + 1);
       getNewWord();
+      toast({
+        title: "Correct!",
+        description: "Keep going!",
+      });
     }
   };
 
@@ -62,14 +66,14 @@ const SpeedTyping = () => {
         </Button>
       ) : (
         <div className="space-y-4">
-          <div className="text-lg">Type: <span className="font-bold">{currentWord.mongolian}</span></div>
-          <div className="text-sm text-mongol-charcoal">Meaning: {currentWord.meaning}</div>
+          <div className="text-lg">Translate: <span className="font-bold">{currentWord.mongolian}</span></div>
           <Input
             type="text"
             value={userInput}
             onChange={handleInputChange}
-            placeholder="Type the word"
+            placeholder="Type the English translation"
             className="w-full"
+            autoFocus
           />
         </div>
       )}

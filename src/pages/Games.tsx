@@ -2,14 +2,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import MatchingGame from "@/components/games/MatchingGame";
-import SpeedQuiz from "@/components/games/SpeedQuiz";
-import WordScramble from "@/components/games/WordScramble";
 import SpeedTyping from "@/components/games/SpeedTyping";
-import WordChains from "@/components/games/WordChains";
 import WordAssociation from "@/components/games/WordAssociation";
 import { useState } from "react";
 
-type GameType = "matching" | "speed" | "scramble" | "typing" | "chains" | "association" | null;
+type GameType = "matching" | "typing" | "association" | null;
 
 const Games = () => {
   const navigate = useNavigate();
@@ -24,39 +21,18 @@ const Games = () => {
       color: "bg-mongol-red"
     },
     {
-      id: "speed",
-      title: "Speed Quiz",
-      description: "Test your knowledge against the clock",
-      component: SpeedQuiz,
-      color: "bg-mongol-gold"
-    },
-    {
-      id: "scramble",
-      title: "Word Scramble",
-      description: "Unscramble Mongolian words",
-      component: WordScramble,
-      color: "bg-mongol-grass"
-    },
-    {
       id: "typing",
       title: "Speed Typing",
-      description: "Type Mongolian words as fast as you can",
+      description: "Type English translations as fast as you can",
       component: SpeedTyping,
-      color: "bg-mongol-sky"
-    },
-    {
-      id: "chains",
-      title: "Word Chains",
-      description: "Create chains of words starting with the last letter",
-      component: WordChains,
-      color: "bg-mongol-earth"
+      color: "bg-mongol-grass"
     },
     {
       id: "association",
       title: "Word Association",
-      description: "Match words with their correct meanings",
+      description: "Match Mongolian words with their correct meanings",
       component: WordAssociation,
-      color: "bg-mongol-charcoal"
+      color: "bg-mongol-sky"
     }
   ];
 
