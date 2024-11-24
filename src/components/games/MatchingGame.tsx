@@ -12,6 +12,7 @@ const MatchingGame = () => {
     content: string;
     type: "pronunciation" | "meaning";
     isMatched: boolean;
+    isSelected: boolean;
   }>>([]);
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
   const [level, setLevel] = useState(1);
@@ -23,20 +24,22 @@ const MatchingGame = () => {
   }, [level]);
 
   const initializeLevel = () => {
-    const startIndex = (level - 1) * 10;
-    const levelWords = WORDS.slice(startIndex, startIndex + 10);
+    const startIndex = (level - 1) * 5; // Reduced to 5 pairs per level for better gameplay
+    const levelWords = WORDS.slice(startIndex, startIndex + 5);
     const gameCards = levelWords.flatMap((word, index) => [
       {
         id: index * 2,
         content: word.pronunciation,
         type: "pronunciation" as const,
         isMatched: false,
+        isSelected: false,
       },
       {
         id: index * 2 + 1,
         content: word.meaning,
         type: "meaning" as const,
         isMatched: false,
+        isSelected: false,
       },
     ]);
     setCards(shuffle(gameCards));
@@ -48,63 +51,90 @@ const MatchingGame = () => {
       return;
     }
 
+    // Update the selected state of the clicked card
+    const updatedCards = cards.map(card => ({
+      ...card,
+      isSelected: card.id === id ? true : card.isSelected
+    }));
+    setCards(updatedCards);
+
     if (selectedCards.length === 0) {
       setSelectedCards([id]);
     } else {
-      setSelectedCards([...selectedCards, id]);
-      
       const firstCard = cards[selectedCards[0]];
       const secondCard = cards[id];
       
-      if (
-        (firstCard.type === "pronunciation" && secondCard.type === "meaning" ||
-         firstCard.type === "meaning" && secondCard.type === "pronunciation") &&
-        WORDS.some(word => 
+      // Check if one card is pronunciation and the other is meaning
+      const isValidPair = 
+        (firstCard.type === "pronunciation" && secondCard.type === "meaning") ||
+        (firstCard.type === "meaning" && secondCard.type === "pronunciation");
+
+      if (isValidPair) {
+        // Find the corresponding word in WORDS array
+        const isMatch = WORDS.some(word => 
           (word.pronunciation === firstCard.content && word.meaning === secondCard.content) ||
           (word.pronunciation === secondCard.content && word.meaning === firstCard.content)
-        )
-      ) {
-        // Match found
-        setTimeout(() => {
-          const updatedCards = [...cards];
-          updatedCards[selectedCards[0]].isMatched = true;
-          updatedCards[id].isMatched = true;
-          setCards(updatedCards);
-          setSelectedCards([]);
-          setScore(score + 10);
+        );
 
-          if (updatedCards.every(card => card.isMatched)) {
-            if (level === 10) {
-              toast({
-                title: "Congratulations!",
-                description: "You've completed all levels! Final score: " + (score + 10),
-              });
-            } else {
-              toast({
-                title: "Level Complete!",
-                description: "Moving to level " + (level + 1),
-              });
-              setLevel(level + 1);
-            }
-          }
-        }, 1000);
-      } else {
-        // No match
         setTimeout(() => {
-          setSelectedCards([]);
-          setLives(lives - 1);
-          
-          if (lives <= 1) {
+          if (isMatch) {
+            // Match found
             toast({
-              title: "Game Over!",
-              description: "You've run out of lives. Final score: " + score,
+              title: "Correct!",
+              description: "You found a matching pair!",
+              variant: "default",
+            });
+
+            const newCards = cards.map(card => ({
+              ...card,
+              isMatched: card.id === selectedCards[0] || card.id === id ? true : card.isMatched,
+              isSelected: false
+            }));
+            setCards(newCards);
+            setScore(score + 10);
+
+            if (newCards.every(card => card.isMatched)) {
+              if (level === 20) {
+                toast({
+                  title: "Congratulations!",
+                  description: "You've completed all levels! Final score: " + (score + 10),
+                });
+              } else {
+                toast({
+                  title: "Level Complete!",
+                  description: "Moving to level " + (level + 1),
+                });
+                setLevel(level + 1);
+              }
+            }
+          } else {
+            // No match
+            toast({
+              title: "Incorrect!",
+              description: "Try again!",
               variant: "destructive",
             });
-            setLevel(1);
-            setLives(3);
-            setScore(0);
-            initializeLevel();
+            
+            const newCards = cards.map(card => ({
+              ...card,
+              isSelected: false
+            }));
+            setCards(newCards);
+            setLives(lives - 1);
+
+            if (lives <= 1) {
+              toast({
+                title: "Game Over!",
+                description: "You've run out of lives. Final score: " + score,
+                variant: "destructive",
+              });
+              setLevel(1);
+              setLives(3);
+              setScore(0);
+              initializeLevel();
+            }
           }
+          setSelectedCards([]);
         }, 1000);
       }
     }
@@ -132,7 +162,8 @@ const MatchingGame = () => {
           <Card
             key={card.id}
             className={`p-4 h-32 flex items-center justify-center cursor-pointer transition-all transform hover:scale-105 
-              ${card.isMatched ? "bg-green-100" : "bg-white"}`}
+              ${card.isMatched ? "bg-green-100" : ""} 
+              ${card.isSelected ? "bg-blue-100" : "bg-white"}`}
             onClick={() => handleCardClick(card.id)}
           >
             <span className="text-center text-lg text-mongol-blue">
