@@ -1,0 +1,22 @@
+export const LESSON12_WORDS = [
+  { mongolian: "Аз жаргал", pronunciation: "az jargal", meaning: "Happiness" },
+  { mongolian: "Уур", pronunciation: "uur", meaning: "Anger" },
+  { mongolian: "Гуниг", pronunciation: "gunig", meaning: "Sadness" },
+  { mongolian: "Айдас", pronunciation: "aidas", meaning: "Fear" },
+  { mongolian: "Сэтгэл хөдлөл", pronunciation: "setgel khödlel", meaning: "Emotion" },
+  { mongolian: "Итгэл", pronunciation: "itgel", meaning: "Trust" },
+  { mongolian: "Эелдэг", pronunciation: "eeldeg", meaning: "Kindness" },
+  { mongolian: "Шунал", pronunciation: "shunal", meaning: "Greed" },
+  { mongolian: "Өшөө авалт", pronunciation: "öshöö avalt", meaning: "Revenge" },
+  { mongolian: "Талархал", pronunciation: "talarhal", meaning: "Gratitude" },
+  { mongolian: "Бахархал", pronunciation: "bakharkhal", meaning: "Pride" },
+  { mongolian: "Шок", pronunciation: "shok", meaning: "Shock" },
+  { mongolian: "Хайр", pronunciation: "khair", meaning: "Love" },
+  { mongolian: "Харамсал", pronunciation: "kharamsal", meaning: "Regret" },
+  { mongolian: "Инээд", pronunciation: "ineed", meaning: "Laughter" },
+  { mongolian: "Урам хугарах", pronunciation: "uram khugarakh", meaning: "Disappointment" },
+  { mongolian: "Эвгүйцэх", pronunciation: "evgüitsekh", meaning: "Embarrassment" },
+  { mongolian: "Баяр", pronunciation: "bayar", meaning: "Joy" },
+  { mongolian: "Гайхширал", pronunciation: "gaikhshiral", meaning: "Surprise" },
+  { mongolian: "Тайван", pronunciation: "taivan", meaning: "Calm" }
+];

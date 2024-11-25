@@ -1,0 +1,22 @@
+export const LESSON11_WORDS = [
+  { mongolian: "Толгой", pronunciation: "tolgoi", meaning: "Head" },
+  { mongolian: "Нүд", pronunciation: "nüd", meaning: "Eye" },
+  { mongolian: "Чих", pronunciation: "chikh", meaning: "Ear" },
+  { mongolian: "Хамар", pronunciation: "khamar", meaning: "Nose" },
+  { mongolian: "Ам", pronunciation: "am", meaning: "Mouth" },
+  { mongolian: "Шүд", pronunciation: "shüd", meaning: "Tooth" },
+  { mongolian: "Хүзүү", pronunciation: "khüzüü", meaning: "Neck" },
+  { mongolian: "Гар", pronunciation: "gar", meaning: "Hand" },
+  { mongolian: "Хөл", pronunciation: "khöl", meaning: "Leg" },
+  { mongolian: "Хуруу", pronunciation: "khuruu", meaning: "Finger" },
+  { mongolian: "Өвдөг", pronunciation: "övdög", meaning: "Knee" },
+  { mongolian: "Цээж", pronunciation: "tseej", meaning: "Chest" },
+  { mongolian: "Нуруу", pronunciation: "nuruu", meaning: "Back" },
+  { mongolian: "Хурууны хумс", pronunciation: "khuruuny khums", meaning: "Fingernail" },
+  { mongolian: "Арьс", pronunciation: "arys", meaning: "Skin" },
+  { mongolian: "Үс", pronunciation: "üs", meaning: "Hair" },
+  { mongolian: "Зүрх", pronunciation: "zürkh", meaning: "Heart" },
+  { mongolian: "Ходоод", pronunciation: "khodood", meaning: "Stomach" },
+  { mongolian: "Мөч", pronunciation: "möch", meaning: "Limb" },
+  { mongolian: "Нүүр", pronunciation: "nüür", meaning: "Face" }
+];
