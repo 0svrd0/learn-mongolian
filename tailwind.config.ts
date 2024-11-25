@@ -8,7 +8,6 @@ export default {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -25,42 +24,26 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         mongol: {
-          sky: "#87CEEB",     // Sky Blue
-          grass: "#8FBC8F",   // Grassland Green
-          gold: "#FFD700",    // Golden Yellow
-          earth: "#8B4513",   // Earth Brown
-          white: "#FFFFFF",   // Snow White
-          charcoal: "#2F4F4F", // Charcoal Grey
-          red: "#D2691E",     // Warm Red
+          sky: {
+            DEFAULT: "#4A90E2",
+            50: "#EDF3FB",
+            100: "#D9E7F7",
+            200: "#B1D0EF",
+            300: "#89B8E7",
+            400: "#62A1DF",
+            500: "#4A90E2",
+            600: "#2573D5",
+            700: "#1C5AA6",
+            800: "#144177",
+            900: "#0C2848",
+          },
+          // ... add more color variations
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        // ... rest of your colors
       },
       keyframes: {
         "accordion-down": {
@@ -75,11 +58,16 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        slideUp: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out",
+        slideUp: "slideUp 0.3s ease-out",
       },
     },
   },
