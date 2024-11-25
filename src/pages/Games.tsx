@@ -1,6 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import SpeedTyping from "@/components/games/SpeedTyping";
 import WordAssociation from "@/components/games/WordAssociation";
 import { useState } from "react";
@@ -8,7 +6,6 @@ import { useState } from "react";
 type GameType = "typing" | "association" | null;
 
 const Games = () => {
-  const navigate = useNavigate();
   const [activeGame, setActiveGame] = useState<GameType>(null);
 
   const games = [
@@ -35,16 +32,6 @@ const Games = () => {
   return (
     <div className="min-h-screen bg-mongol-white p-8">
       <div className="container mx-auto">
-        <Button 
-          onClick={() => {
-            setActiveGame(null);
-            navigate("/");
-          }}
-          className="mb-8 bg-mongol-grass hover:bg-mongol-grass/80 text-white"
-        >
-          Back to Home
-        </Button>
-
         {!activeGame ? (
           <>
             <h1 className="text-4xl font-bold text-mongol-charcoal mb-8">Games</h1>
@@ -58,12 +45,12 @@ const Games = () => {
                   <p className="text-mongol-charcoal/80 mb-4">
                     {game.description}
                   </p>
-                  <Button 
+                  <button 
                     onClick={() => setActiveGame(game.id as GameType)}
-                    className={`w-full ${game.color} hover:opacity-90 text-white`}
+                    className={`w-full ${game.color} hover:opacity-90 text-white px-4 py-2 rounded`}
                   >
                     Play Now
-                  </Button>
+                  </button>
                 </Card>
               ))}
             </div>

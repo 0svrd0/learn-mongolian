@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { Card } from "@/components/ui/card";
 import { ArrowLeft } from "lucide-react";
 import LessonCard from "@/components/LessonCard";
 import { 
@@ -26,8 +25,6 @@ import {
 } from "@/data/vocabulary";
 
 const Learn = () => {
-  const navigate = useNavigate();
-
   const lessons = [
     {
       number: 1,
@@ -154,17 +151,6 @@ const Learn = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-mongol-sky/5 to-mongol-sky/20 p-8">
       <div className="container mx-auto">
-        <div className="flex items-center gap-4 mb-12">
-          <Button 
-            onClick={() => navigate("/")}
-            variant="ghost"
-            className="group"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
-            Back to Home
-          </Button>
-        </div>
-
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
           <h1 className="text-5xl font-bold text-mongol-earth mb-6 tracking-tight">
             Learn Mongolian
