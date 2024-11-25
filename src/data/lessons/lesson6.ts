@@ -1,0 +1,22 @@
+export const LESSON6_WORDS = [
+  { mongolian: "Нар", pronunciation: "Nar", meaning: "Sun" },
+  { mongolian: "Сар", pronunciation: "Sar", meaning: "Moon" },
+  { mongolian: "Од", pronunciation: "Od", meaning: "Star" },
+  { mongolian: "Тэнгэр", pronunciation: "Tenger", meaning: "Sky" },
+  { mongolian: "Уул", pronunciation: "Uul", meaning: "Mountain" },
+  { mongolian: "Гол", pronunciation: "Gol", meaning: "River" },
+  { mongolian: "Нуур", pronunciation: "Nuur", meaning: "Lake" },
+  { mongolian: "Ой", pronunciation: "Oi", meaning: "Forest" },
+  { mongolian: "Цэцэг", pronunciation: "Tsetseg", meaning: "Flower" },
+  { mongolian: "Мод", pronunciation: "Mod", meaning: "Tree" },
+  { mongolian: "Салхи", pronunciation: "Salkhi", meaning: "Wind" },
+  { mongolian: "Борoo", pronunciation: "Boroo", meaning: "Rain" },
+  { mongolian: "Цас", pronunciation: "Tsas", meaning: "Snow" },
+  { mongolian: "Газар", pronunciation: "Gazar", meaning: "Earth/Land" },
+  { mongolian: "Далай", pronunciation: "Dalai", meaning: "Ocean" },
+  { mongolian: "Элс", pronunciation: "Els", meaning: "Sand" },
+  { mongolian: "Хад", pronunciation: "Khad", meaning: "Rock" },
+  { mongolian: "Говь", pronunciation: "Govi", meaning: "Desert" },
+  { mongolian: "Тал", pronunciation: "Tal", meaning: "Steppe" },
+  { mongolian: "Ургамал", pronunciation: "Urgamal", meaning: "Plant" }
+];

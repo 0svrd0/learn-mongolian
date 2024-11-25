@@ -8,6 +8,10 @@ import {
   LESSON3_WORDS,
   LESSON4_WORDS,
   LESSON5_WORDS,
+  LESSON6_WORDS,
+  LESSON7_WORDS,
+  LESSON8_WORDS,
+  LESSON9_WORDS,
   LESSON13_WORDS,
   LESSON14_WORDS,
   LESSON15_WORDS,
@@ -51,6 +55,30 @@ const Learn = () => {
       title: "Nature",
       description: "Learn words related to nature and the environment.",
       words: LESSON5_WORDS
+    },
+    {
+      number: 6,
+      title: "Nature Extended",
+      description: "Learn more words about nature and natural phenomena.",
+      words: LESSON6_WORDS
+    },
+    {
+      number: 7,
+      title: "Transportation",
+      description: "Learn vocabulary related to different modes of transport.",
+      words: LESSON7_WORDS
+    },
+    {
+      number: 8,
+      title: "Shopping",
+      description: "Learn essential vocabulary for shopping and transactions.",
+      words: LESSON8_WORDS
+    },
+    {
+      number: 9,
+      title: "Weather",
+      description: "Learn vocabulary related to weather and climate.",
+      words: LESSON9_WORDS
     },
     {
       number: 13,
