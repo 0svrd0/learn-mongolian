@@ -1,5 +1,8 @@
 import { LESSON1_WORDS } from './lessons/lesson1';
 import { LESSON2_WORDS } from './lessons/lesson2';
+import { LESSON3_WORDS } from './lessons/lesson3';
+import { LESSON4_WORDS } from './lessons/lesson4';
+import { LESSON5_WORDS } from './lessons/lesson5';
 import { LESSON13_WORDS } from './lessons/lesson13';
 import { LESSON14_WORDS } from './lessons/lesson14';
 import { LESSON15_WORDS } from './lessons/lesson15';
@@ -13,6 +16,9 @@ import { LESSON20_WORDS } from './lessons/lesson20';
 export {
   LESSON1_WORDS,
   LESSON2_WORDS,
+  LESSON3_WORDS,
+  LESSON4_WORDS,
+  LESSON5_WORDS,
   LESSON13_WORDS,
   LESSON14_WORDS,
   LESSON15_WORDS,
@@ -27,6 +33,9 @@ export {
 export const WORDS = [
   ...LESSON1_WORDS,
   ...LESSON2_WORDS,
+  ...LESSON3_WORDS,
+  ...LESSON4_WORDS,
+  ...LESSON5_WORDS,
   ...LESSON13_WORDS,
   ...LESSON14_WORDS,
   ...LESSON15_WORDS,

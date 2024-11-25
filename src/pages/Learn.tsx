@@ -5,6 +5,9 @@ import { ArrowLeft } from "lucide-react";
 import { 
   LESSON1_WORDS, 
   LESSON2_WORDS,
+  LESSON3_WORDS,
+  LESSON4_WORDS,
+  LESSON5_WORDS,
   LESSON13_WORDS,
   LESSON14_WORDS,
   LESSON15_WORDS,
@@ -30,6 +33,24 @@ const Learn = () => {
       title: "Numbers and Time",
       description: "Understand numbers and how to tell time in Mongolian.",
       words: LESSON2_WORDS
+    },
+    {
+      number: 3,
+      title: "Family",
+      description: "Learn vocabulary related to family members and relationships.",
+      words: LESSON3_WORDS
+    },
+    {
+      number: 4,
+      title: "Food and Drinks",
+      description: "Learn vocabulary for different foods and beverages.",
+      words: LESSON4_WORDS
+    },
+    {
+      number: 5,
+      title: "Nature",
+      description: "Learn words related to nature and the environment.",
+      words: LESSON5_WORDS
     },
     {
       number: 13,
