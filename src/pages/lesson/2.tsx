@@ -1,65 +1,158 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { LESSON2_WORDS } from "@/data/lessons/lesson2";
 import { useState } from "react";
 
 const Lesson2 = () => {
+  const { toast } = useToast();
   const navigate = useNavigate();
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  const playAudio = (audioPath: string) => {
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
+  const playAudio = () => {
+    const currentWord = LESSON2_WORDS[currentWordIndex];
+    if (!currentWord.audio) {
+      toast({
+        title: "Audio not available",
+        description: "Sorry, this word doesn't have audio yet.",
+      });
+      return;
     }
-    const newAudio = new Audio(audioPath);
-    newAudio.play();
-    setAudio(newAudio);
+
+    setIsAudioPlaying(true);
+    const audio = new Audio(currentWord.audio);
+    
+    audio.addEventListener('ended', () => {
+      setIsAudioPlaying(false);
+    });
+
+    audio.addEventListener('error', () => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Failed to play audio file.",
+        variant: "destructive",
+      });
+    });
+
+    audio.play().catch((error) => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Failed to play audio file.",
+        variant: "destructive",
+      });
+    });
   };
 
+  const nextWord = () => {
+    setCurrentWordIndex((prev) => (prev + 1) % LESSON2_WORDS.length);
+  };
+
+  const previousWord = () => {
+    setCurrentWordIndex((prev) => 
+      (prev - 1 + LESSON2_WORDS.length) % LESSON2_WORDS.length
+    );
+  };
+
+  const currentWord = LESSON2_WORDS[currentWordIndex];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-mongol-sky/5 to-mongol-sky/20 p-8">
-      <div className="container mx-auto">
-        <div className="flex items-center gap-4 mb-12">
-          <Button onClick={() => navigate("/learn")} variant="ghost" className="group">
-            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" />
+    <div className="min-h-screen bg-mongol-cream p-8">
+      <div className="container mx-auto max-w-4xl">
+        <Button 
+          onClick={() => navigate("/learn")}
+          className="mb-8 bg-mongol-blue hover:bg-mongol-navy text-white"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2" />
+          Back to Lessons
+        </Button>
+
+        <Card className="mb-8">
+          <CardContent className="p-6">
+            <h1 className="text-3xl font-bold text-mongol-blue mb-4">
+              Lesson 2: Numbers and Time
+            </h1>
+            <p className="text-gray-600 mb-6">
+              Learn essential numbers and time-related vocabulary in Mongolian
+            </p>
+
+            <div className="flex flex-col items-center space-y-6">
+              <div className="relative w-full max-w-md aspect-video">
+                <img
+                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+                  alt="Learning scene"
+                  className="rounded-lg w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 rounded-lg flex items-center justify-center">
+                  <p className="text-white text-4xl font-bold text-center">
+                    {currentWord.mongolian}
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-center space-y-4 w-full max-w-md">
+                <p className="text-xl font-medium">
+                  Pronunciation: "{currentWord.pronunciation}"
+                </p>
+                <p className="text-lg text-gray-600">
+                  Meaning: {currentWord.meaning}
+                </p>
+
+                <div className="flex justify-center gap-4">
+                  <Button
+                    onClick={playAudio}
+                    disabled={isAudioPlaying}
+                    className="bg-mongol-gold hover:bg-yellow-600 text-white"
+                  >
+                    {isAudioPlaying ? "Playing..." : "Listen"}
+                  </Button>
+                </div>
+
+                <div className="flex justify-between mt-8">
+                  <Button
+                    onClick={previousWord}
+                    variant="outline"
+                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                  >
+                    Previous Word
+                  </Button>
+                  <Button
+                    onClick={nextWord}
+                    variant="outline"
+                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                  >
+                    Next Word
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <div className="flex justify-between">
+          <Button
+            variant="outline"
+            onClick={() => navigate("/learn")}
+            className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+          >
             Back to Lessons
+          </Button>
+          <Button
+            onClick={() => navigate("/lesson/2/quiz")}
+            className="bg-mongol-blue hover:bg-mongol-navy text-white"
+          >
+            Take Quiz
           </Button>
         </div>
 
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl font-bold text-mongol-earth mb-6">
-            Lesson 2: Numbers and Time
-          </h1>
-          <p className="text-xl text-mongol-charcoal/80">
-            Learn essential numbers and time-related vocabulary in Mongolian.
+        <div className="mt-8">
+          <p className="text-sm text-gray-500 text-center">
+            Progress: {currentWordIndex + 1} / {LESSON2_WORDS.length}
           </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {LESSON2_WORDS.map((word, index) => (
-            <Card key={index} className="p-6">
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-mongol-earth">
-                    {word.mongolian}
-                  </h3>
-                  <p className="text-sm text-mongol-charcoal/60 mt-1">
-                    {word.pronunciation}
-                  </p>
-                </div>
-                <p className="text-lg text-mongol-charcoal">{word.meaning}</p>
-                <Button
-                  onClick={() => playAudio(word.audio)}
-                  className="w-full bg-mongol-grass hover:bg-mongol-grass/90"
-                >
-                  Listen
-                </Button>
-              </div>
-            </Card>
-          ))}
         </div>
       </div>
     </div>
