@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const Story = () => {
   const navigate = useNavigate();
@@ -35,13 +34,6 @@ const Story = () => {
   return (
     <div className="min-h-screen bg-mongol-sky/10 p-8">
       <div className="container mx-auto">
-        <Button 
-          onClick={() => navigate("/")}
-          className="mb-8 bg-mongol-grass hover:bg-mongol-grass/80 text-white"
-        >
-          Back to Home
-        </Button>
-
         <h1 className="text-4xl font-bold text-mongol-charcoal mb-8">Stories</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
