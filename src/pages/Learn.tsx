@@ -55,8 +55,8 @@ const Learn = () => {
     },
     {
       number: 5,
-      title: "Nature",
-      description: "Learn words related to nature and the environment.",
+      title: "Colors",
+      description: "Learn colors and related descriptive terms in Mongolian.",
       words: LESSON5_WORDS
     },
     {
