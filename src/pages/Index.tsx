@@ -10,10 +10,10 @@ const Index = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center animate-fadeIn">
           <h1 className="text-5xl font-bold text-mongol-earth mb-6">
-            MongoLearn
+            Start learning Mongolian
           </h1>
           <p className="text-xl text-mongol-charcoal mb-12">
-            Start learning Mongolian
+            subtitle
           </p>
         </div>
 
