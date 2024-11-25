@@ -2,6 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { 
+  LESSON1_WORDS, 
+  LESSON2_WORDS,
+  LESSON13_WORDS,
+  LESSON14_WORDS,
+  LESSON15_WORDS,
+  LESSON16_WORDS,
+  LESSON17_WORDS,
+  LESSON18_WORDS,
+  LESSON19_WORDS,
+  LESSON20_WORDS
+} from "@/data/vocabulary";
 
 const Learn = () => {
   const navigate = useNavigate();
@@ -10,104 +22,83 @@ const Learn = () => {
     {
       number: 1,
       title: "Greetings",
-      description: "Learn how to greet people and introduce yourself in Mongolian."
+      description: "Learn how to greet people and introduce yourself in Mongolian.",
+      words: LESSON1_WORDS
     },
     {
       number: 2,
       title: "Numbers and Time",
-      description: "Understand numbers and how to tell time in Mongolian."
-    },
-    {
-      number: 3,
-      title: "Family",
-      description: "Learn vocabulary related to family members in Mongolian."
-    },
-    {
-      number: 4,
-      title: "Food and Drink",
-      description: "Discover vocabulary related to food and drink in Mongolian."
-    },
-    {
-      number: 5,
-      title: "Colors",
-      description: "Learn essential color vocabulary in Mongolian."
-    },
-    {
-      number: 6,
-      title: "Nature",
-      description: "Explore nature-related vocabulary in Mongolian."
-    },
-    {
-      number: 7,
-      title: "Transportation",
-      description: "Learn words related to different modes of transportation."
-    },
-    {
-      number: 8,
-      title: "Shopping",
-      description: "Master essential shopping vocabulary in Mongolian."
-    },
-    {
-      number: 9,
-      title: "Weather",
-      description: "Learn how to talk about weather in Mongolian."
-    },
-    {
-      number: 10,
-      title: "Daily Activities",
-      description: "Discover vocabulary for common daily activities."
-    },
-    {
-      number: 11,
-      title: "Body Parts",
-      description: "Learn vocabulary for different parts of the body in Mongolian."
-    },
-    {
-      number: 12,
-      title: "Emotions",
-      description: "Express feelings and emotions in Mongolian."
+      description: "Understand numbers and how to tell time in Mongolian.",
+      words: LESSON2_WORDS
     },
     {
       number: 13,
       title: "Occupations",
-      description: "Learn about different professions and jobs in Mongolian."
+      description: "Learn about different professions and jobs in Mongolian.",
+      words: LESSON13_WORDS
     },
     {
       number: 14,
       title: "Clothing",
-      description: "Discover vocabulary for different types of clothing."
+      description: "Discover vocabulary for different types of clothing.",
+      words: LESSON14_WORDS
     },
     {
       number: 15,
       title: "Animals",
-      description: "Learn names of various animals in Mongolian."
+      description: "Learn names of various animals in Mongolian.",
+      words: LESSON15_WORDS
     },
     {
       number: 16,
       title: "Technology",
-      description: "Master modern technology vocabulary in Mongolian."
+      description: "Master modern technology vocabulary in Mongolian.",
+      words: LESSON16_WORDS
     },
     {
       number: 17,
       title: "Hobbies",
-      description: "Learn vocabulary related to different hobbies and activities."
+      description: "Learn vocabulary related to different hobbies and activities.",
+      words: LESSON17_WORDS
     },
     {
       number: 18,
       title: "Travel",
-      description: "Essential vocabulary for traveling in Mongolia."
+      description: "Essential vocabulary for traveling in Mongolia.",
+      words: LESSON18_WORDS
     },
     {
       number: 19,
       title: "Shapes and Sizes",
-      description: "Learn about different shapes and sizes in Mongolian."
+      description: "Learn about different shapes and sizes in Mongolian.",
+      words: LESSON19_WORDS
     },
     {
       number: 20,
       title: "Verbs",
-      description: "Master essential verbs in Mongolian."
+      description: "Master essential verbs in Mongolian.",
+      words: LESSON20_WORDS
     }
   ];
+
+  const exportVocabulary = (lessonWords: any[], lessonTitle: string) => {
+    const csvContent = [
+      "Mongolian,Pronunciation,Meaning",
+      ...lessonWords.map(word => 
+        `${word.mongolian || ''},${word.pronunciation},${word.meaning}`
+      )
+    ].join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    
+    link.setAttribute('href', url);
+    link.setAttribute('download', `vocabulary-lesson-${lessonTitle.toLowerCase().replace(/\s+/g, '-')}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-mongol-sky/5 to-mongol-sky/20 p-8">
@@ -143,7 +134,7 @@ const Learn = () => {
                   {lesson.number}
                 </div>
                 <div>
-                  <h2  className="text-xl font-semibold text-mongol-earth">
+                  <h2 className="text-xl font-semibold text-mongol-earth">
                     {lesson.title}
                   </h2>
                   <p className="text-sm text-mongol-charcoal/70 mt-1">
@@ -151,12 +142,21 @@ const Learn = () => {
                   </p>
                 </div>
               </div>
-              <Button 
-                onClick={() => navigate(`/lesson/${lesson.number}`)}
-                className="w-full bg-mongol-grass hover:bg-mongol-grass/90 text-white"
-              >
-                Start Lesson
-              </Button>
+              <div className="space-y-2">
+                <Button 
+                  onClick={() => navigate(`/lesson/${lesson.number}`)}
+                  className="w-full bg-mongol-grass hover:bg-mongol-grass/90 text-white"
+                >
+                  Start Lesson
+                </Button>
+                <Button
+                  onClick={() => exportVocabulary(lesson.words, `${lesson.number}-${lesson.title}`)}
+                  variant="outline"
+                  className="w-full border-mongol-grass text-mongol-grass hover:bg-mongol-grass/10"
+                >
+                  Export Vocabulary
+                </Button>
+              </div>
             </Card>
           ))}
         </div>
