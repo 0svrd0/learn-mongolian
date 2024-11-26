@@ -33,7 +33,7 @@ const Lesson15 = () => {
   const currentWord = LESSON15_WORDS[currentWordIndex];
 
   return (
-    <div className="min-h-screen bg-[#112d5b] p-8">
+    <div className="min-h-screen bg-mongol-cream p-8">
       <div className="container mx-auto max-w-4xl">
         <Button 
           onClick={() => navigate("/learn")}
@@ -108,7 +108,7 @@ const Lesson15 = () => {
           <Button
             variant="outline"
             onClick={() => navigate("/learn")}
-            className="border-white text-white hover:bg-white/10"
+            className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
           >
             Back to Lessons
           </Button>
@@ -121,7 +121,7 @@ const Lesson15 = () => {
         </div>
 
         <div className="mt-8">
-          <p className="text-sm text-white/60 text-center">
+          <p className="text-sm text-gray-500 text-center">
             Progress: {currentWordIndex + 1} / {LESSON15_WORDS.length}
           </p>
         </div>
