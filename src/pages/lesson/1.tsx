@@ -62,13 +62,6 @@ const Lesson1 = () => {
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
       <div className="container mx-auto max-w-4xl">
-        <Button 
-          onClick={() => navigate("/learn")}
-          className="mb-8 bg-mongol-blue hover:bg-mongol-navy text-white"
-        >
-          Back to Lessons
-        </Button>
-
         <Card className="mb-8">
           <CardContent className="p-6">
             <h1 className="text-3xl font-bold text-mongol-blue mb-4">
@@ -104,7 +97,7 @@ const Lesson1 = () => {
                   <Button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    className="bg-mongol-gold hover:bg-yellow-600 text-white"
+                    className="bg-mongol-blue hover:bg-mongol-navy text-white"
                   >
                     {isAudioPlaying ? "Playing..." : "Listen"}
                   </Button>
