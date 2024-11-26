@@ -33,7 +33,7 @@ const Lesson15 = () => {
   const currentWord = LESSON15_WORDS[currentWordIndex];
 
   return (
-    <div className="min-h-screen bg-mongol-cream p-8">
+    <div className="min-h-screen bg-[#112d5b] p-8">
       <div className="container mx-auto max-w-4xl">
         <Button 
           onClick={() => navigate("/learn")}
@@ -42,12 +42,12 @@ const Lesson15 = () => {
           Back to Lessons
         </Button>
 
-        <Card className="mb-8">
+        <Card className="mb-8 bg-[#112d5b] border-white/20">
           <CardContent className="p-6">
-            <h1 className="text-3xl font-bold text-mongol-blue mb-4">
+            <h1 className="text-3xl font-bold text-white mb-4">
               Lesson 15: Animals
             </h1>
-            <p className="text-gray-600 mb-6">
+            <p className="text-white/80 mb-6">
               Learn essential Mongolian animal vocabulary
             </p>
 
@@ -66,10 +66,10 @@ const Lesson15 = () => {
               </div>
 
               <div className="text-center space-y-4 w-full max-w-md">
-                <p className="text-xl font-medium">
+                <p className="text-xl font-medium text-white">
                   Pronunciation: "{currentWord.pronunciation}"
                 </p>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-white/80">
                   Meaning: {currentWord.meaning}
                 </p>
 
@@ -87,14 +87,14 @@ const Lesson15 = () => {
                   <Button
                     onClick={previousWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="border-white text-white hover:bg-white/10"
                   >
                     Previous Word
                   </Button>
                   <Button
                     onClick={nextWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="border-white text-white hover:bg-white/10"
                   >
                     Next Word
                   </Button>
@@ -108,7 +108,7 @@ const Lesson15 = () => {
           <Button
             variant="outline"
             onClick={() => navigate("/learn")}
-            className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+            className="border-white text-white hover:bg-white/10"
           >
             Back to Lessons
           </Button>
@@ -121,7 +121,7 @@ const Lesson15 = () => {
         </div>
 
         <div className="mt-8">
-          <p className="text-sm text-gray-500 text-center">
+          <p className="text-sm text-white/60 text-center">
             Progress: {currentWordIndex + 1} / {LESSON15_WORDS.length}
           </p>
         </div>
