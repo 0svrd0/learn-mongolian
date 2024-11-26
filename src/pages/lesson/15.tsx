@@ -70,7 +70,8 @@ const Lesson15 = () => {
                   <Button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    className="bg-mongol-gold hover:bg-yellow-600 text-[#112d5b]"
+                    variant="outline"
+                    className="border-white text-white hover:bg-white/10"
                   >
                     {isAudioPlaying ? "Playing..." : "Listen"}
                   </Button>
