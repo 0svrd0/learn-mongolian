@@ -18,39 +18,39 @@ const Index = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          <Card className="p-6 hover:shadow-lg transition-shadow animate-fadeIn bg-[#2a64ac]">
+          <Card className="p-6 hover:shadow-lg transition-shadow animate-fadeIn bg-[#112d5b]">
             <h2 className="text-2xl font-semibold text-white mb-4">Learn vocabulary</h2>
             <p className="text-white mb-4">
               Master Mongolian through interactive lessons
             </p>
             <Button 
-              className="w-full bg-white hover:bg-white/90 text-[#2a64ac]"
+              className="w-full bg-white hover:bg-white/90 text-[#112d5b]"
               onClick={() => navigate("/learn")}
             >
               Start Learning
             </Button>
           </Card>
 
-          <Card className="p-6 hover:shadow-lg transition-shadow animate-fadeIn bg-[#2a64ac]">
+          <Card className="p-6 hover:shadow-lg transition-shadow animate-fadeIn bg-[#112d5b]">
             <h2 className="text-2xl font-semibold text-white mb-4">Quizzes</h2>
             <p className="text-white mb-4">
               Practice your skills
             </p>
             <Button 
-              className="w-full bg-white hover:bg-white/90 text-[#2a64ac]"
+              className="w-full bg-white hover:bg-white/90 text-[#112d5b]"
               onClick={() => navigate("/games")}
             >
               Play Games
             </Button>
           </Card>
 
-          <Card className="p-6 hover:shadow-lg transition-shadow animate-fadeIn bg-[#2a64ac]">
+          <Card className="p-6 hover:shadow-lg transition-shadow animate-fadeIn bg-[#112d5b]">
             <h2 className="text-2xl font-semibold text-white mb-4">Story</h2>
             <p className="text-white mb-4">
               Read simple stories with traditional Mongolian script
             </p>
             <Button 
-              className="w-full bg-white hover:bg-white/90 text-[#2a64ac]"
+              className="w-full bg-white hover:bg-white/90 text-[#112d5b]"
               onClick={() => navigate("/story")}
             >
               Read Stories

@@ -38,7 +38,7 @@ const Games = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {games.map((game) => (
-                <Card key={game.id} className="p-6 hover:shadow-lg transition-shadow bg-[#2a64ac]">
+                <Card key={game.id} className="p-6 hover:shadow-lg transition-shadow bg-[#112d5b]">
                   <h2 className="text-2xl font-semibold text-white mb-4">
                     {game.title}
                   </h2>
@@ -47,7 +47,7 @@ const Games = () => {
                   </p>
                   <button 
                     onClick={() => setActiveGame(game.id as GameType)}
-                    className={`w-full ${game.color} hover:opacity-90 text-[#2a64ac] px-4 py-2 rounded`}
+                    className={`w-full ${game.color} hover:opacity-90 text-[#112d5b] px-4 py-2 rounded`}
                   >
                     Play Now
                   </button>

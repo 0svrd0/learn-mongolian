@@ -32,7 +32,7 @@ const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
   };
 
   return (
-    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-[#2a64ac] border-white/20">
+    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-[#112d5b] border-white/20">
       <div className="flex items-start gap-4 mb-4">
         <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white font-semibold">
           {number}
@@ -49,7 +49,7 @@ const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
       <div className="space-y-2">
         <Button 
           onClick={() => navigate(`/lesson/${number}`)}
-          className="w-full bg-white hover:bg-white/90 text-[#2a64ac]"
+          className="w-full bg-white hover:bg-white/90 text-[#112d5b]"
         >
           Start Lesson
         </Button>
