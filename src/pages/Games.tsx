@@ -30,7 +30,7 @@ const Games = () => {
     : null;
 
   return (
-    <div className="min-h-screen bg-[#4b93ec] p-8">
+    <div className="min-h-screen bg-[#2a64ac]">
       <div className="container mx-auto">
         {!activeGame ? (
           <>

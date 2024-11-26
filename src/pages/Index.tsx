@@ -6,7 +6,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#4b93ec]">
+    <div className="min-h-screen bg-[#2a64ac]">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center animate-fadeIn">
           <h1 className="text-5xl font-bold text-white mb-6">

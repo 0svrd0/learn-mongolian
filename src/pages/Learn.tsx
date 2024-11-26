@@ -148,7 +148,7 @@ const Learn = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#4b93ec] p-8">
+    <div className="min-h-screen bg-[#2a64ac]">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
           <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">

@@ -35,7 +35,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+          <div className="min-h-screen bg-[#2a64ac]">
             <Header />
             <PageWrapper>
               <Routes>
