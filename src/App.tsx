@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "./providers/theme-provider";
 import { AnimatePresence, motion } from "framer-motion";
 import Header from "./components/Header";
-// ... rest of your imports
+import Index from "./pages/Index";
+import Learn from "./pages/Learn";
 
 const queryClient = new QueryClient();
 
