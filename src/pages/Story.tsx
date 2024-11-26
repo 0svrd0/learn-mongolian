@@ -32,15 +32,15 @@ const Story = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-mongol-sky/10 p-8">
+    <div className="min-h-screen bg-[#4b93ec] p-8">
       <div className="container mx-auto">
-        <h1 className="text-4xl font-bold text-mongol-charcoal mb-8">Stories</h1>
+        <h1 className="text-4xl font-bold text-white mb-8">Stories</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {stories.map((story) => (
             <Card 
               key={story.id}
-              className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
+              className="p-6 hover:shadow-lg transition-shadow cursor-pointer bg-[#2a64ac]"
               onClick={() => navigate(`/story/${story.id}`)}
             >
               <div className="aspect-video mb-4 overflow-hidden rounded-lg">
@@ -50,10 +50,10 @@ const Story = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h2 className="text-2xl font-semibold text-mongol-charcoal mb-2">
+              <h2 className="text-2xl font-semibold text-white mb-2">
                 {story.title}
               </h2>
-              <p className="text-mongol-charcoal/80">
+              <p className="text-white/80">
                 {story.description}
               </p>
             </Card>

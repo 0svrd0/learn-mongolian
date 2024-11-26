@@ -15,7 +15,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-mongol-white border-b border-mongol-gold/20 py-4 px-8 mb-8">
+    <header className="bg-[#f4fafd] border-b border-white/20 py-4 px-8 mb-8">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <img 
@@ -23,7 +23,7 @@ const Header = () => {
             alt="MongoLearn Logo" 
             className="h-10 w-10"
           />
-          <span className="text-2xl font-bold text-mongol-earth">MongoLearn</span>
+          <span className="text-2xl font-bold text-[#2a64ac]">MongoLearn</span>
         </div>
         
         <nav className="flex flex-wrap gap-2">
@@ -33,8 +33,8 @@ const Header = () => {
               variant={isActive(item.path) ? "default" : "ghost"}
               className={`${
                 isActive(item.path)
-                  ? "bg-mongol-grass text-white"
-                  : "text-mongol-charcoal hover:bg-mongol-grass/10"
+                  ? "bg-white text-[#2a64ac]"
+                  : "text-[#2a64ac] hover:bg-white/10"
               }`}
               onClick={() => navigate(item.path)}
             >

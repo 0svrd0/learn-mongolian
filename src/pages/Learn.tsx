@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
 import LessonCard from "@/components/LessonCard";
 import { 
   LESSON1_WORDS, 
@@ -149,13 +148,13 @@ const Learn = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-mongol-sky/5 to-mongol-sky/20 p-8">
+    <div className="min-h-screen bg-[#4b93ec] p-8">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
-          <h1 className="text-5xl font-bold text-mongol-earth mb-6 tracking-tight">
+          <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
             Learn Mongolian
           </h1>
-          <p className="text-xl text-mongol-charcoal/80">
+          <p className="text-xl text-white/80">
             Explore the basics of the Mongolian language through interactive lessons and exercises.
           </p>
         </div>
