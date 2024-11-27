@@ -65,7 +65,7 @@ const Lesson1 = () => {
       <div className="container mx-auto max-w-4xl">
         <Button 
           onClick={() => navigate("/learn")}
-          className="mb-8 bg-mongol-blue text-white hover:bg-white hover:text-mongol-navy border border-mongol-blue"
+          className="mb-8 bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Back to Lessons
@@ -106,7 +106,7 @@ const Lesson1 = () => {
                   <Button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    className="border border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
                   >
                     {isAudioPlaying ? "Playing..." : "Listen"}
                   </Button>
@@ -116,14 +116,14 @@ const Lesson1 = () => {
                   <Button
                     onClick={previousWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
                   >
                     Previous Word
                   </Button>
                   <Button
                     onClick={nextWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
                   >
                     Next Word
                   </Button>
@@ -137,13 +137,13 @@ const Lesson1 = () => {
           <Button
             variant="outline"
             onClick={() => navigate("/learn")}
-            className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+            className="bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
           >
             Back to Lessons
           </Button>
           <Button
             onClick={() => navigate("/lesson/1/quiz")}
-            className="bg-mongol-blue text-white hover:bg-white hover:text-mongol-navy border border-mongol-blue"
+            className="bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
           >
             Take Quiz
           </Button>
