@@ -33,24 +33,27 @@ import Story3 from "@/pages/stories/Story3";
 import Story4 from "@/pages/stories/Story4";
 
 const PageWrapper = ({ children }: { children: React.ReactNode }) => {
-  return <div className="container mx-auto">{children}</div>;
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-mongol-sky-50 to-white">
+      <div className="container mx-auto px-4 py-6">{children}</div>
+    </div>
+  );
 };
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div>
+      <div className="min-h-screen bg-[#F5F6FF]">
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="min-h-screen bg-[#2a64ac]">
-            <Header />
-            <PageWrapper>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/learn" element={<Learn />} />
-                <Route path="/games" element={<Games />} />
-                <Route path="/story" element={<Story />} />
+          <Header />
+          <PageWrapper>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/learn" element={<Learn />} />
+              <Route path="/games" element={<Games />} />
+              <Route path="/story" element={<Story />} />
                 <Route path="/story/1" element={<Story1 />} />
                 <Route path="/story/2" element={<Story2 />} />
                 <Route path="/story/3" element={<Story3 />} />
@@ -75,9 +78,8 @@ function App() {
                 <Route path="/lesson/18" element={<Lesson18 />} />
                 <Route path="/lesson/19" element={<Lesson19 />} />
                 <Route path="/lesson/20" element={<Lesson20 />} />
-              </Routes>
-            </PageWrapper>
-          </div>
+            </Routes>
+          </PageWrapper>
         </BrowserRouter>
       </div>
     </ThemeProvider>
