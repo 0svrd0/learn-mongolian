@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { LESSON1_WORDS } from "@/data/lessons/lesson1";
+import { useState } from "react";
 
 const Lesson1 = () => {
   const { toast } = useToast();
@@ -62,13 +63,21 @@ const Lesson1 = () => {
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
       <div className="container mx-auto max-w-4xl">
+        <Button 
+          onClick={() => navigate("/learn")}
+          className="mb-8 bg-mongol-blue hover:bg-mongol-blue hover:text-mongol-navy text-white"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2" />
+          Back to Lessons
+        </Button>
+
         <Card className="mb-8">
           <CardContent className="p-6">
             <h1 className="text-3xl font-bold text-mongol-blue mb-4">
-              Lesson 1: Greetings and Basics
+              Lesson 1: Basic Phrases
             </h1>
             <p className="text-gray-600 mb-6">
-              Learn essential Mongolian greetings and basic phrases
+              Learn essential Mongolian phrases for basic communication
             </p>
 
             <div className="flex flex-col items-center space-y-6">
@@ -97,8 +106,7 @@ const Lesson1 = () => {
                   <Button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="bg-mongol-gold hover:bg-mongol-gold hover:text-mongol-navy text-white"
                   >
                     {isAudioPlaying ? "Playing..." : "Listen"}
                   </Button>
@@ -108,14 +116,14 @@ const Lesson1 = () => {
                   <Button
                     onClick={previousWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="border-mongol-blue text-mongol-blue hover:bg-white hover:text-mongol-navy"
                   >
                     Previous Word
                   </Button>
                   <Button
                     onClick={nextWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+                    className="border-mongol-blue text-mongol-blue hover:bg-white hover:text-mongol-navy"
                   >
                     Next Word
                   </Button>
@@ -129,13 +137,13 @@ const Lesson1 = () => {
           <Button
             variant="outline"
             onClick={() => navigate("/learn")}
-            className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
+            className="border-mongol-blue text-mongol-blue hover:bg-white hover:text-mongol-navy"
           >
             Back to Lessons
           </Button>
           <Button
             onClick={() => navigate("/lesson/1/quiz")}
-            className="bg-mongol-blue hover:bg-mongol-navy text-white"
+            className="bg-mongol-blue hover:bg-mongol-blue hover:text-mongol-navy text-white"
           >
             Take Quiz
           </Button>
