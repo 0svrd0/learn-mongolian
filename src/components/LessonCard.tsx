@@ -32,16 +32,16 @@ const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
   };
 
   return (
-    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-[#112d5b] border-white/20">
+    <Card className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white border-mongol-sky-100">
       <div className="flex items-start gap-4 mb-4">
-        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white font-semibold">
+        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-mongol-sky-50 text-mongol-sky-500 font-semibold">
           {number}
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-white">
+          <h2 className="text-xl font-semibold text-mongol-charcoal">
             {title}
           </h2>
-          <p className="text-sm text-white/70 mt-1">
+          <p className="text-sm text-gray-600 mt-1">
             {description}
           </p>
         </div>
@@ -49,14 +49,14 @@ const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
       <div className="space-y-2">
         <Button 
           onClick={() => navigate(`/lesson/${number}`)}
-          className="w-full bg-white hover:bg-white/90 text-[#112d5b]"
+          className="w-full bg-mongol-sky-500 hover:bg-mongol-sky-600 text-white"
         >
           Start Lesson
         </Button>
         <Button
           onClick={() => exportVocabulary(words, `${number}-${title}`)}
           variant="outline"
-          className="w-full border-white text-white hover:bg-white/10"
+          className="w-full border-mongol-sky-200 text-mongol-sky-500 hover:bg-mongol-sky-50"
         >
           Export Vocabulary
         </Button>
