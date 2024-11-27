@@ -106,7 +106,7 @@ const Lesson1 = () => {
                   <Button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    className="bg-mongol-blue text-white hover:bg-white hover:text-mongol-navy border border-mongol-blue"
+                    className="border border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
                   >
                     {isAudioPlaying ? "Playing..." : "Listen"}
                   </Button>
@@ -116,14 +116,14 @@ const Lesson1 = () => {
                   <Button
                     onClick={previousWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-white hover:text-mongol-navy"
+                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
                   >
                     Previous Word
                   </Button>
                   <Button
                     onClick={nextWord}
                     variant="outline"
-                    className="border-mongol-blue text-mongol-blue hover:bg-white hover:text-mongol-navy"
+                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
                   >
                     Next Word
                   </Button>
@@ -137,7 +137,7 @@ const Lesson1 = () => {
           <Button
             variant="outline"
             onClick={() => navigate("/learn")}
-            className="border-mongol-blue text-mongol-blue hover:bg-white hover:text-mongol-navy"
+            className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
           >
             Back to Lessons
           </Button>
