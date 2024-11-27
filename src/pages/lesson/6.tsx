@@ -3,29 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
-const NATURE = [
-  { mongolian: "Нар", pronunciation: "Nar", meaning: "Sun" },
-  { mongolian: "Сар", pronunciation: "Sar", meaning: "Moon" },
-  { mongolian: "Од", pronunciation: "Od", meaning: "Star" },
-  { mongolian: "Тэнгэр", pronunciation: "Tenger", meaning: "Sky" },
-  { mongolian: "Уул", pronunciation: "Uul", meaning: "Mountain" },
-  { mongolian: "Гол", pronunciation: "Gol", meaning: "River" },
-  { mongolian: "Нуур", pronunciation: "Nuur", meaning: "Lake" },
-  { mongolian: "Ой", pronunciation: "Oi", meaning: "Forest" },
-  { mongolian: "Цэцэг", pronunciation: "Tsetseg", meaning: "Flower" },
-  { mongolian: "Мод", pronunciation: "Mod", meaning: "Tree" },
-  { mongolian: "Салхи", pronunciation: "Salkhi", meaning: "Wind" },
-  { mongolian: "Борoo", pronunciation: "Boroo", meaning: "Rain" },
-  { mongolian: "Цас", pronunciation: "Tsas", meaning: "Snow" },
-  { mongolian: "Газар", pronunciation: "Gazar", meaning: "Earth/Land" },
-  { mongolian: "Далай", pronunciation: "Dalai", meaning: "Ocean" },
-  { mongolian: "Элс", pronunciation: "Els", meaning: "Sand" },
-  { mongolian: "Хад", pronunciation: "Khad", meaning: "Rock" },
-  { mongolian: "Говь", pronunciation: "Govi", meaning: "Desert" },
-  { mongolian: "Тал", pronunciation: "Tal", meaning: "Steppe" },
-  { mongolian: "Ургамал", pronunciation: "Urgamal", meaning: "Plant" }
-];
+import { LESSON6_WORDS } from "@/data/lessons/lesson6";
 
 const Lesson6 = () => {
   const { toast } = useToast();
@@ -35,24 +13,44 @@ const Lesson6 = () => {
 
   const playAudio = () => {
     setIsAudioPlaying(true);
-    setTimeout(() => setIsAudioPlaying(false), 2000);
-    toast({
-      title: "Playing audio...",
-      description: "Audio feature coming soon!",
+    const word = LESSON6_WORDS[currentWordIndex].mongolian;
+    const audio = new Audio(`/audio/lesson6/${word}.mp3`);
+    
+    audio.onerror = () => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Audio not available",
+        description: "This word's audio is not yet available.",
+        variant: "destructive",
+      });
+    };
+    
+    audio.onended = () => {
+      setIsAudioPlaying(false);
+    };
+    
+    audio.play().catch((error) => {
+      console.error("Error playing audio:", error);
+      setIsAudioPlaying(false);
+      toast({
+        title: "Audio playback failed",
+        description: "Unable to play the audio file.",
+        variant: "destructive",
+      });
     });
   };
 
   const nextWord = () => {
-    setCurrentWordIndex((prev) => (prev + 1) % NATURE.length);
+    setCurrentWordIndex((prev) => (prev + 1) % LESSON6_WORDS.length);
   };
 
   const previousWord = () => {
     setCurrentWordIndex((prev) => 
-      (prev - 1 + NATURE.length) % NATURE.length
+      (prev - 1 + LESSON6_WORDS.length) % LESSON6_WORDS.length
     );
   };
 
-  const currentWord = NATURE[currentWordIndex];
+  const currentWord = LESSON6_WORDS[currentWordIndex];
 
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
@@ -144,7 +142,7 @@ const Lesson6 = () => {
 
         <div className="mt-8">
           <p className="text-sm text-gray-500 text-center">
-            Progress: {currentWordIndex + 1} / {NATURE.length}
+            Progress: {currentWordIndex + 1} / {LESSON6_WORDS.length}
           </p>
         </div>
       </div>
