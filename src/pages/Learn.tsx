@@ -148,13 +148,13 @@ const Learn = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#2a64ac]">
-      <div className="container mx-auto">
+    <div className="min-h-screen bg-[#F5F6FF]">
+      <div className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fadeIn">
-          <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-5xl font-bold text-mongol-charcoal mb-6 tracking-tight">
             Learn Mongolian
           </h1>
-          <p className="text-xl text-white/80">
+          <p className="text-xl text-gray-600">
             Explore the basics of the Mongolian language through interactive lessons and exercises.
           </p>
         </div>
