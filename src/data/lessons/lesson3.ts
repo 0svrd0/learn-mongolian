@@ -16,7 +16,7 @@ export const LESSON3_WORDS = [
   { mongolian: "Хамаатан", pronunciation: "Khamaatan", meaning: "Relative", audio: "/audio/lesson3/Relative.m4a" },
   { mongolian: "Найз", pronunciation: "Naiz", meaning: "Friend", audio: "/audio/lesson3/Friend.m4a" },
   { mongolian: "Ах дүү", pronunciation: "Akh düü", meaning: "Siblings", audio: "/audio/lesson3/Siblings.m4a" },
-  { mongolian: "Хүүгийн", pronunciation: "Khüügiin", meaning: "Male child's", audio: "/audio/lesson3/Male child's.m4a" },
-  { mongolian: "Охины", pronunciation: "Okhiny", meaning: "Female child's", audio: "/audio/lesson3/Female child's.m4a" },
+  { mongolian: "Хүүгийн", pronunciation: "Khüügiin", meaning: "Male child's", audio: "/audio/lesson3/Male-childs.m4a" },
+  { mongolian: "Охины", pronunciation: "Okhiny", meaning: "Female child's", audio: "/audio/lesson3/Female-childs.m4a" },
   { mongolian: "Гэрлэлт", pronunciation: "Gerleet", meaning: "Marriage", audio: "/audio/lesson3/Marriage.m4a" },
 ];
