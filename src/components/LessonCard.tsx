@@ -51,14 +51,14 @@ const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
       <div className="space-y-2">
         <Button 
           onClick={() => navigate(`/lesson/${number}`)}
-          className="w-full bg-mongol-sky-500 hover:bg-mongol-sky-600 text-white"
+          className="w-full bg-mongol-sky-500 hover:bg-mongol-sky-600 hover:text-mongol-sky-100"
         >
           Start Lesson
         </Button>
         <Button
           onClick={() => exportVocabulary(words, `${number}-${title}`)}
           variant="outline"
-          className="w-full border-mongol-sky-200 text-mongol-sky-500 hover:bg-mongol-sky-50"
+          className="w-full border-mongol-sky-200 text-mongol-sky-500 hover:bg-mongol-sky-50 hover:text-mongol-sky-500"
         >
           Export Vocabulary
         </Button>
