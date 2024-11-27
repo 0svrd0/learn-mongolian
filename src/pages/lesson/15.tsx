@@ -35,13 +35,20 @@ const Lesson15 = () => {
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
       <div className="container mx-auto max-w-4xl">
-        <Card className="mb-8 bg-[#112d5b] border-white/20">
+        <Button 
+          onClick={() => navigate("/learn")}
+          className="mb-8 bg-mongol-blue hover:bg-mongol-navy text-white"
+        >
+          Back to Lessons
+        </Button>
+
+        <Card className="mb-8">
           <CardContent className="p-6">
-            <h1 className="text-3xl font-bold text-white mb-4">
+            <h1 className="text-3xl font-bold text-mongol-blue mb-4">
               Lesson 15: Animals
             </h1>
-            <p className="text-white/80 mb-6">
-              Learn essential Mongolian animal vocabulary
+            <p className="text-gray-600 mb-6">
+              Learn names of various animals in Mongolian.
             </p>
 
             <div className="flex flex-col items-center space-y-6">
@@ -59,10 +66,10 @@ const Lesson15 = () => {
               </div>
 
               <div className="text-center space-y-4 w-full max-w-md">
-                <p className="text-xl font-medium text-white">
+                <p className="text-xl font-medium">
                   Pronunciation: "{currentWord.pronunciation}"
                 </p>
-                <p className="text-lg text-white/80">
+                <p className="text-lg text-gray-600">
                   Meaning: {currentWord.meaning}
                 </p>
 
@@ -70,8 +77,7 @@ const Lesson15 = () => {
                   <Button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    variant="outline"
-                    className="border-white text-white hover:bg-white/10"
+                    className="bg-mongol-gold hover:bg-yellow-600 text-white"
                   >
                     {isAudioPlaying ? "Playing..." : "Listen"}
                   </Button>
@@ -81,14 +87,14 @@ const Lesson15 = () => {
                   <Button
                     onClick={previousWord}
                     variant="outline"
-                    className="border-white text-white hover:bg-white/10"
+                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
                   >
                     Previous Word
                   </Button>
                   <Button
                     onClick={nextWord}
                     variant="outline"
-                    className="border-white text-white hover:bg-white/10"
+                    className="border-mongol-blue text-mongol-blue hover:bg-mongol-blue hover:text-white"
                   >
                     Next Word
                   </Button>
