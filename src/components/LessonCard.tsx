@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "./ui/use-toast";
 
 interface LessonCardProps {
   number: number;
@@ -11,6 +12,7 @@ interface LessonCardProps {
 
 const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const exportVocabulary = (lessonWords: any[], lessonTitle: string) => {
     const csvContent = [
@@ -29,6 +31,31 @@ const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const playRandomWord = () => {
+    if (words.length > 0) {
+      const randomWord = words[Math.floor(Math.random() * words.length)];
+      const audioPath = `/audio/lesson${number}/${randomWord.mongolian}.mp3`;
+      
+      const audio = new Audio(audioPath);
+      audio.onerror = () => {
+        toast({
+          title: "Audio not available",
+          description: "This word's audio is not yet available.",
+          variant: "destructive",
+        });
+      };
+      
+      audio.play().catch((error) => {
+        console.error("Error playing audio:", error);
+        toast({
+          title: "Audio playback failed",
+          description: "Unable to play the audio file.",
+          variant: "destructive",
+        });
+      });
+    }
   };
 
   return (
@@ -53,13 +80,22 @@ const LessonCard = ({ number, title, description, words }: LessonCardProps) => {
         >
           Start Lesson
         </Button>
-        <Button
-          onClick={() => exportVocabulary(words, `${number}-${title}`)}
-          variant="outline"
-          className="w-full border-mongol-sky-200 text-mongol-sky-500 hover:bg-mongol-sky-50"
-        >
-          Export Vocabulary
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            onClick={() => exportVocabulary(words, `${number}-${title}`)}
+            variant="outline"
+            className="flex-1 border-mongol-sky-200 text-mongol-sky-500 hover:bg-mongol-sky-50"
+          >
+            Export Vocabulary
+          </Button>
+          <Button
+            onClick={playRandomWord}
+            variant="outline"
+            className="border-mongol-sky-200 text-mongol-sky-500 hover:bg-mongol-sky-50"
+          >
+            🔊
+          </Button>
+        </div>
       </div>
     </Card>
   );
