@@ -34,7 +34,7 @@ import Story4 from "@/pages/stories/Story4";
 
 const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-mongol-sky-50 to-white">
+    <div className="min-h-screen bg-[#F5F6FF]">
       <div className="container mx-auto px-4 py-6">{children}</div>
     </div>
   );
@@ -54,30 +54,30 @@ function App() {
               <Route path="/learn" element={<Learn />} />
               <Route path="/games" element={<Games />} />
               <Route path="/story" element={<Story />} />
-                <Route path="/story/1" element={<Story1 />} />
-                <Route path="/story/2" element={<Story2 />} />
-                <Route path="/story/3" element={<Story3 />} />
-                <Route path="/story/4" element={<Story4 />} />
-                <Route path="/lesson/1" element={<Lesson1 />} />
-                <Route path="/lesson/2" element={<Lesson2 />} />
-                <Route path="/lesson/3" element={<Lesson3 />} />
-                <Route path="/lesson/4" element={<Lesson4 />} />
-                <Route path="/lesson/5" element={<Lesson5 />} />
-                <Route path="/lesson/6" element={<Lesson6 />} />
-                <Route path="/lesson/7" element={<Lesson7 />} />
-                <Route path="/lesson/8" element={<Lesson8 />} />
-                <Route path="/lesson/9" element={<Lesson9 />} />
-                <Route path="/lesson/10" element={<Lesson10 />} />
-                <Route path="/lesson/11" element={<Lesson11 />} />
-                <Route path="/lesson/12" element={<Lesson12 />} />
-                <Route path="/lesson/13" element={<Lesson13 />} />
-                <Route path="/lesson/14" element={<Lesson14 />} />
-                <Route path="/lesson/15" element={<Lesson15 />} />
-                <Route path="/lesson/16" element={<Lesson16 />} />
-                <Route path="/lesson/17" element={<Lesson17 />} />
-                <Route path="/lesson/18" element={<Lesson18 />} />
-                <Route path="/lesson/19" element={<Lesson19 />} />
-                <Route path="/lesson/20" element={<Lesson20 />} />
+              <Route path="/story/1" element={<Story1 />} />
+              <Route path="/story/2" element={<Story2 />} />
+              <Route path="/story/3" element={<Story3 />} />
+              <Route path="/story/4" element={<Story4 />} />
+              <Route path="/lesson/1" element={<Lesson1 />} />
+              <Route path="/lesson/2" element={<Lesson2 />} />
+              <Route path="/lesson/3" element={<Lesson3 />} />
+              <Route path="/lesson/4" element={<Lesson4 />} />
+              <Route path="/lesson/5" element={<Lesson5 />} />
+              <Route path="/lesson/6" element={<Lesson6 />} />
+              <Route path="/lesson/7" element={<Lesson7 />} />
+              <Route path="/lesson/8" element={<Lesson8 />} />
+              <Route path="/lesson/9" element={<Lesson9 />} />
+              <Route path="/lesson/10" element={<Lesson10 />} />
+              <Route path="/lesson/11" element={<Lesson11 />} />
+              <Route path="/lesson/12" element={<Lesson12 />} />
+              <Route path="/lesson/13" element={<Lesson13 />} />
+              <Route path="/lesson/14" element={<Lesson14 />} />
+              <Route path="/lesson/15" element={<Lesson15 />} />
+              <Route path="/lesson/16" element={<Lesson16 />} />
+              <Route path="/lesson/17" element={<Lesson17 />} />
+              <Route path="/lesson/18" element={<Lesson18 />} />
+              <Route path="/lesson/19" element={<Lesson19 />} />
+              <Route path="/lesson/20" element={<Lesson20 />} />
             </Routes>
           </PageWrapper>
         </BrowserRouter>

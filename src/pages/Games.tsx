@@ -30,24 +30,24 @@ const Games = () => {
     : null;
 
   return (
-    <div className="min-h-screen bg-[#2a64ac]">
+    <div className="min-h-screen bg-[#F5F6FF]">
       <div className="container mx-auto px-4 py-8">
         {!activeGame ? (
           <>
-            <h1 className="text-4xl font-bold text-white mb-8">Games</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-8">Games</h1>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {games.map((game) => (
-                <Card key={game.id} className="p-6 hover:shadow-lg transition-shadow bg-[#112d5b] border-white/20">
-                  <h2 className="text-2xl font-semibold text-white mb-4">
+                <Card key={game.id} className="p-6 hover:shadow-lg transition-shadow bg-white">
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                     {game.title}
                   </h2>
-                  <p className="text-white/80 mb-4">
+                  <p className="text-gray-600 mb-4">
                     {game.description}
                   </p>
                   <button 
                     onClick={() => setActiveGame(game.id as GameType)}
-                    className="w-full bg-white hover:bg-white/90 text-[#112d5b] px-4 py-2 rounded"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
                   >
                     Play Now
                   </button>

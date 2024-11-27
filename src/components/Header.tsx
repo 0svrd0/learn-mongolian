@@ -24,7 +24,7 @@ const Header = () => {
               alt="MongoLearn Logo" 
               className="h-8 w-8"
             />
-            <span className="text-xl font-semibold bg-gradient-to-r from-mongol-sky-600 to-mongol-sky-800 bg-clip-text text-transparent">
+            <span className="text-xl font-semibold text-blue-600">
               MongoLearn
             </span>
           </div>
@@ -36,8 +36,8 @@ const Header = () => {
                 variant={isActive(item.path) ? "default" : "ghost"}
                 className={`${
                   isActive(item.path)
-                    ? "bg-mongol-sky-500 text-white hover:bg-mongol-sky-600"
-                    : "text-gray-600 hover:text-mongol-sky-600 hover:bg-mongol-sky-50"
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
                 } transition-all duration-200`}
                 onClick={() => navigate(item.path)}
               >
