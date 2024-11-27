@@ -31,14 +31,14 @@ const Games = () => {
 
   return (
     <div className="min-h-screen bg-[#2a64ac]">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 py-8">
         {!activeGame ? (
           <>
             <h1 className="text-4xl font-bold text-white mb-8">Games</h1>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {games.map((game) => (
-                <Card key={game.id} className="p-6 hover:shadow-lg transition-shadow bg-[#112d5b]">
+                <Card key={game.id} className="p-6 hover:shadow-lg transition-shadow bg-[#112d5b] border-white/20">
                   <h2 className="text-2xl font-semibold text-white mb-4">
                     {game.title}
                   </h2>
@@ -47,7 +47,7 @@ const Games = () => {
                   </p>
                   <button 
                     onClick={() => setActiveGame(game.id as GameType)}
-                    className={`w-full ${game.color} hover:opacity-90 text-[#112d5b] px-4 py-2 rounded`}
+                    className="w-full bg-white hover:bg-white/90 text-[#112d5b] px-4 py-2 rounded"
                   >
                     Play Now
                   </button>
