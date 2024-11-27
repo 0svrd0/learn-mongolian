@@ -65,7 +65,7 @@ const Lesson1 = () => {
       <div className="container mx-auto max-w-4xl">
         <Button 
           onClick={() => navigate("/learn")}
-          className="mb-8 bg-mongol-blue hover:bg-mongol-blue hover:text-mongol-navy text-white"
+          className="mb-8 bg-mongol-blue text-white hover:bg-white hover:text-mongol-navy border border-mongol-blue"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Back to Lessons
@@ -106,7 +106,7 @@ const Lesson1 = () => {
                   <Button
                     onClick={playAudio}
                     disabled={isAudioPlaying}
-                    className="bg-mongol-gold hover:bg-mongol-gold hover:text-mongol-navy text-white"
+                    className="bg-mongol-blue text-white hover:bg-white hover:text-mongol-navy border border-mongol-blue"
                   >
                     {isAudioPlaying ? "Playing..." : "Listen"}
                   </Button>
@@ -143,7 +143,7 @@ const Lesson1 = () => {
           </Button>
           <Button
             onClick={() => navigate("/lesson/1/quiz")}
-            className="bg-mongol-blue hover:bg-mongol-blue hover:text-mongol-navy text-white"
+            className="bg-mongol-blue text-white hover:bg-white hover:text-mongol-navy border border-mongol-blue"
           >
             Take Quiz
           </Button>
