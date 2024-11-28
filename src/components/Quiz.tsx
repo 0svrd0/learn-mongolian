@@ -51,6 +51,15 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
 
   const currentWord = shuffledWords[currentWordIndex];
 
+  const moveToNextQuestion = () => {
+    if (currentWordIndex === shuffledWords.length - 1) {
+      setIsComplete(true);
+    } else {
+      setCurrentWordIndex(currentWordIndex + 1);
+    }
+    setUserAnswer("");
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -65,20 +74,15 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
         description: `"${currentWord.mongolian}" means "${currentWord.meaning}"`,
         className: "bg-green-500 text-white",
       });
+      moveToNextQuestion();
     } else {
       toast({
         title: "Incorrect",
         description: `The correct answer was "${currentWord.meaning}"`,
         variant: "destructive",
       });
-    }
-
-    setUserAnswer("");
-
-    if (currentWordIndex === shuffledWords.length - 1) {
-      setIsComplete(true);
-    } else {
-      setCurrentWordIndex(currentWordIndex + 1);
+      // Add a delay before moving to the next question when the answer is incorrect
+      setTimeout(moveToNextQuestion, 2000);
     }
   };
 
