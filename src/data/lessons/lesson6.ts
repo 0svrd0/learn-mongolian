@@ -1,6 +1,6 @@
 export const LESSON6_WORDS = [
-  { mongolian: "Нар", pronunciation: "Nar", meaning: "Sun", audio: "/audio/lesson6/Нар.mp3" },
-  { mongolian: "Сар", pronunciation: "Sar", meaning: "Moon", audio: "/audio/lesson6/Сар.mp3" },
+  { mongolian: "Нар", pronunciation: "Nar", meaning: "Sun", audio: "/audio/lesson6/нар.mp3" },
+  { mongolian: "Сар", pronunciation: "Sar", meaning: "Moon", audio: "/audio/lesson6/сар.mp3" },
   { mongolian: "Од", pronunciation: "Od", meaning: "Star", audio: "/audio/lesson6/од.mp3" },
   { mongolian: "Тэнгэр", pronunciation: "Tenger", meaning: "Sky", audio: "/audio/lesson6/тэнгэр.mp3" },
   { mongolian: "Уул", pronunciation: "Uul", meaning: "Mountain", audio: "/audio/lesson6/уул.mp3" },
