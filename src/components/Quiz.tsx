@@ -73,15 +73,17 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
         title: "Correct!",
         description: `"${currentWord.mongolian}" means "${currentWord.meaning}"`,
         className: "bg-green-500 text-white",
+        duration: 2000,
       });
       moveToNextQuestion();
     } else {
       toast({
         title: "Incorrect",
-        description: `The correct answer was "${currentWord.meaning}"`,
+        description: `"${currentWord.mongolian}" means "${currentWord.meaning}"`,
         variant: "destructive",
+        duration: 2000,
+        className: "text-lg font-medium",
       });
-      // Add a delay before moving to the next question when the answer is incorrect
       setTimeout(moveToNextQuestion, 2000);
     }
   };
