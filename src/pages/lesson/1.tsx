@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LESSON1_WORDS } from "@/data/lessons/lesson1";
@@ -70,6 +71,7 @@ const Lesson1 = () => {
           onClick={() => navigate("/learn")}
           className="mb-8 bg-mongol-blue hover:bg-mongol-navy text-white"
         >
+          <ArrowLeft className="w-5 h-5 mr-2" />
           Back to Lessons
         </Button>
 
