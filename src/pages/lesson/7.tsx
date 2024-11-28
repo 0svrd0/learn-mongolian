@@ -30,10 +30,29 @@ const Lesson7 = () => {
 
   const playAudio = () => {
     setIsAudioPlaying(true);
-    setTimeout(() => setIsAudioPlaying(false), 2000);
-    toast({
-      title: "Playing audio...",
-      description: "Audio feature coming soon!",
+    const word = TRANSPORTATION[currentWordIndex].mongolian;
+    const audio = new Audio(`/audio/lesson7/${word}.mp3`);
+    
+    audio.onended = () => {
+      setIsAudioPlaying(false);
+    };
+
+    audio.onerror = () => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
+    };
+
+    audio.play().catch((error) => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
     });
   };
 
