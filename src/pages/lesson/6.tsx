@@ -12,40 +12,51 @@ const Lesson6 = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  const playAudio = () => {
+  const playAudio = async () => {
     const currentWord = LESSON6_WORDS[currentWordIndex];
     if (!currentWord.audio) {
       toast({
         title: "Audio not available",
         description: "Sorry, this word doesn't have audio yet.",
+        variant: "destructive",
       });
       return;
     }
 
-    setIsAudioPlaying(true);
-    const audio = new Audio(currentWord.audio);
-    
-    audio.addEventListener('ended', () => {
-      setIsAudioPlaying(false);
-    });
+    try {
+      setIsAudioPlaying(true);
+      const audio = new Audio(currentWord.audio);
+      
+      audio.addEventListener('ended', () => {
+        setIsAudioPlaying(false);
+      });
 
-    audio.addEventListener('error', () => {
+      audio.addEventListener('error', (e) => {
+        console.error('Audio error:', e);
+        setIsAudioPlaying(false);
+        toast({
+          title: "Error",
+          description: `Failed to play audio file: ${currentWord.mongolian}`,
+          variant: "destructive",
+        });
+      });
+
+      // Test if the audio file exists before playing
+      const response = await fetch(currentWord.audio);
+      if (!response.ok) {
+        throw new Error(`Audio file not found: ${currentWord.audio}`);
+      }
+
+      await audio.play();
+    } catch (error) {
+      console.error('Playback error:', error);
       setIsAudioPlaying(false);
       toast({
         title: "Error",
-        description: "Failed to play audio file.",
+        description: "Failed to play audio file. Please check if the audio file exists.",
         variant: "destructive",
       });
-    });
-
-    audio.play().catch((error) => {
-      setIsAudioPlaying(false);
-      toast({
-        title: "Error",
-        description: "Failed to play audio file.",
-        variant: "destructive",
-      });
-    });
+    }
   };
 
   const nextWord = () => {
