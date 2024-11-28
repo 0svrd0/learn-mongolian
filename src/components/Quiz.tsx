@@ -6,6 +6,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { shuffle } from "@/utils/arrayUtils";
 import { Headphones } from "lucide-react";
+import { Toaster } from "@/components/ui/toaster";
 
 interface Word {
   mongolian: string;
@@ -120,56 +121,59 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
   }
 
   return (
-    <Card className="p-6 max-w-xl mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-4">
-        Lesson {lessonNumber} Quiz
-      </h2>
-      <p className="text-center mb-2">
-        Question {currentWordIndex + 1} of {shuffledWords.length}
-      </p>
-      <div className="text-center mb-6">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <p className="text-xl font-bold">{currentWord.mongolian}</p>
-          {currentWord.audio && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => playAudio(currentWord.audio)}
-              className="p-1"
-            >
-              <Headphones className="h-4 w-4" />
-            </Button>
-          )}
+    <>
+      <Card className="p-6 max-w-xl mx-auto">
+        <h2 className="text-2xl font-bold text-center mb-4">
+          Lesson {lessonNumber} Quiz
+        </h2>
+        <p className="text-center mb-2">
+          Question {currentWordIndex + 1} of {shuffledWords.length}
+        </p>
+        <div className="text-center mb-6">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <p className="text-xl font-bold">{currentWord.mongolian}</p>
+            {currentWord.audio && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => playAudio(currentWord.audio)}
+                className="p-1"
+              >
+                <Headphones className="h-4 w-4" />
+              </Button>
+            )}
+          </div>
+          <p className="text-gray-600">Pronunciation: {currentWord.pronunciation}</p>
         </div>
-        <p className="text-gray-600">Pronunciation: {currentWord.pronunciation}</p>
-      </div>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <Input
-            type="text"
-            value={userAnswer}
-            onChange={(e) => setUserAnswer(e.target.value)}
-            placeholder="Enter the English translation"
-            className="w-full"
-            autoFocus
-          />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Input
+              type="text"
+              value={userAnswer}
+              onChange={(e) => setUserAnswer(e.target.value)}
+              placeholder="Enter the English translation"
+              className="w-full"
+              autoFocus
+            />
+          </div>
+          <Button type="submit" className="w-full">
+            Submit Answer
+          </Button>
+        </form>
+        <div className="mt-4 text-center text-sm text-gray-600">
+          Score: {score}/{currentWordIndex}
         </div>
-        <Button type="submit" className="w-full">
-          Submit Answer
-        </Button>
-      </form>
-      <div className="mt-4 text-center text-sm text-gray-600">
-        Score: {score}/{currentWordIndex}
-      </div>
-      <div className="mt-6 text-center">
-        <Button 
-          variant="outline" 
-          onClick={() => navigate(`/lesson/${lessonNumber}`)}
-        >
-          Back to Lesson
-        </Button>
-      </div>
-    </Card>
+        <div className="mt-6 text-center">
+          <Button 
+            variant="outline" 
+            onClick={() => navigate(`/lesson/${lessonNumber}`)}
+          >
+            Back to Lesson
+          </Button>
+        </div>
+      </Card>
+      <Toaster />
+    </>
   );
 };
 
