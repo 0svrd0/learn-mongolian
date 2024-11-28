@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
+import { shuffle } from "@/utils/arrayUtils";
 
 interface Word {
   mongolian: string;
@@ -17,6 +18,7 @@ interface QuizProps {
 }
 
 const Quiz = ({ words, lessonNumber }: QuizProps) => {
+  const [shuffledWords, setShuffledWords] = useState<Word[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
   const [score, setScore] = useState(0);
@@ -24,12 +26,26 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const currentWord = words[currentWordIndex];
+  useEffect(() => {
+    setShuffledWords(shuffle([...words]));
+  }, [words]);
+
+  const normalizeString = (str: string) => {
+    return str
+      .toLowerCase()
+      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  };
+
+  const currentWord = shuffledWords[currentWordIndex];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const isCorrect = userAnswer.toLowerCase().trim() === currentWord.meaning.toLowerCase();
+    const normalizedUserAnswer = normalizeString(userAnswer);
+    const normalizedCorrectAnswer = normalizeString(currentWord?.meaning);
+    const isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
     
     if (isCorrect) {
       setScore(score + 1);
@@ -48,19 +64,23 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
 
     setUserAnswer("");
 
-    if (currentWordIndex === words.length - 1) {
+    if (currentWordIndex === shuffledWords.length - 1) {
       setIsComplete(true);
     } else {
       setCurrentWordIndex(currentWordIndex + 1);
     }
   };
 
+  if (!currentWord) {
+    return null;
+  }
+
   if (isComplete) {
     return (
       <Card className="p-6 max-w-xl mx-auto">
         <h2 className="text-2xl font-bold text-center mb-4">Quiz Complete!</h2>
         <p className="text-center text-lg mb-4">
-          Your score: {score} out of {words.length}
+          Your score: {score} out of {shuffledWords.length}
         </p>
         <div className="flex justify-center gap-4">
           <Button onClick={() => navigate(`/lesson/${lessonNumber}`)}>
@@ -68,6 +88,7 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
           </Button>
           <Button 
             onClick={() => {
+              setShuffledWords(shuffle([...words]));
               setCurrentWordIndex(0);
               setScore(0);
               setIsComplete(false);
@@ -83,11 +104,20 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
 
   return (
     <Card className="p-6 max-w-xl mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-4">
-        Lesson {lessonNumber} Quiz
-      </h2>
+      <div className="flex justify-between items-center mb-4">
+        <Button 
+          variant="outline" 
+          onClick={() => navigate(`/lesson/${lessonNumber}`)}
+          className="mb-4"
+        >
+          Back to Lesson
+        </Button>
+        <h2 className="text-2xl font-bold text-center">
+          Lesson {lessonNumber} Quiz
+        </h2>
+      </div>
       <p className="text-center mb-2">
-        Question {currentWordIndex + 1} of {words.length}
+        Question {currentWordIndex + 1} of {shuffledWords.length}
       </p>
       <div className="text-center mb-6">
         <p className="text-xl font-bold mb-2">{currentWord.mongolian}</p>
