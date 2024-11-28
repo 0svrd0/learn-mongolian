@@ -25,35 +25,33 @@ const Lesson6 = () => {
 
     try {
       setIsAudioPlaying(true);
+      const response = await fetch(currentWord.audio);
+      if (!response.ok) {
+        throw new Error(`Audio file not found: ${currentWord.audio}`);
+      }
+      
       const audio = new Audio(currentWord.audio);
       
       audio.addEventListener('ended', () => {
         setIsAudioPlaying(false);
       });
 
-      audio.addEventListener('error', (e) => {
-        console.error('Audio error:', e);
+      audio.addEventListener('error', () => {
         setIsAudioPlaying(false);
         toast({
           title: "Error",
-          description: `Failed to play audio file: ${currentWord.mongolian}`,
+          description: "Audio feature coming soon for this word.",
           variant: "destructive",
         });
       });
-
-      // Test if the audio file exists before playing
-      const response = await fetch(currentWord.audio);
-      if (!response.ok) {
-        throw new Error(`Audio file not found: ${currentWord.audio}`);
-      }
 
       await audio.play();
     } catch (error) {
       console.error('Playback error:', error);
       setIsAudioPlaying(false);
       toast({
-        title: "Error",
-        description: "Failed to play audio file. Please check if the audio file exists.",
+        title: "Audio not available",
+        description: "Audio feature coming soon for this word.",
         variant: "destructive",
       });
     }
@@ -125,14 +123,16 @@ const Lesson6 = () => {
 
                 <div className="flex justify-between mt-8">
                   <Button
-                    onClick={previousWord}
+                    onClick={() => setCurrentWordIndex((prev) => 
+                      (prev - 1 + LESSON6_WORDS.length) % LESSON6_WORDS.length
+                    )}
                     variant="outline"
                     className="bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
                   >
                     Previous Word
                   </Button>
                   <Button
-                    onClick={nextWord}
+                    onClick={() => setCurrentWordIndex((prev) => (prev + 1) % LESSON6_WORDS.length)}
                     variant="outline"
                     className="bg-white text-mongol-blue hover:bg-mongol-navy hover:text-white border border-mongol-blue"
                   >
