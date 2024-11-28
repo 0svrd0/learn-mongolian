@@ -10,7 +10,7 @@ export const LESSON6_WORDS = [
   { mongolian: "Цэцэг", pronunciation: "Tsetseg", meaning: "Flower", audio: "/audio/lesson6/Цэцэг.mp3" },
   { mongolian: "Мод", pronunciation: "Mod", meaning: "Tree", audio: "/audio/lesson6/Мод.mp3" },
   { mongolian: "Салхи", pronunciation: "Salkhi", meaning: "Wind", audio: "/audio/lesson6/Салхи.mp3" },
-  { mongolian: "Борoo", pronunciation: "Boroo", meaning: "Rain", audio: "/audio/lesson6/Борoo.mp3" },
+  { mongolian: "Борoo", pronunciation: "Boroo", meaning: "Rain", audio: "/audio/lesson6/Бороо.mp3" },
   { mongolian: "Цас", pronunciation: "Tsas", meaning: "Snow", audio: "/audio/lesson6/Цас.mp3" },
   { mongolian: "Газар", pronunciation: "Gazar", meaning: "Earth/Land", audio: "/audio/lesson6/Газар.mp3" },
   { mongolian: "Далай", pronunciation: "Dalai", meaning: "Ocean", audio: "/audio/lesson6/Далай.mp3" },
