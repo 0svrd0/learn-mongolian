@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import Learn from "./pages/Learn";
 import Games from "./pages/Games";
@@ -51,15 +52,16 @@ import Lesson20Quiz from "./pages/lesson/20/quiz";
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/learn" element={<Learn />} />
-        <Route path="/games" element={<Games />} />
-        <Route path="/story" element={<Story />} />
-        <Route path="/story/1" element={<Story1 />} />
-        <Route path="/story/2" element={<Story2 />} />
-        <Route path="/story/3" element={<Story3 />} />
-        <Route path="/story/4" element={<Story4 />} />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/story" element={<Story />} />
+          <Route path="/story/1" element={<Story1 />} />
+          <Route path="/story/2" element={<Story2 />} />
+          <Route path="/story/3" element={<Story3 />} />
+          <Route path="/story/4" element={<Story4 />} />
         <Route path="/lesson/1" element={<Lesson1 />} />
         <Route path="/lesson/2" element={<Lesson2 />} />
         <Route path="/lesson/3" element={<Lesson3 />} />
@@ -100,7 +102,8 @@ function App() {
         <Route path="/lesson/18/quiz" element={<Lesson18Quiz />} />
         <Route path="/lesson/19/quiz" element={<Lesson19Quiz />} />
         <Route path="/lesson/20/quiz" element={<Lesson20Quiz />} />
-      </Routes>
+        </Routes>
+      </Layout>
     </Router>
   );
 }
