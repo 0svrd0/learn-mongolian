@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LESSON17_WORDS } from "@/data/vocabulary";
@@ -13,10 +13,29 @@ const Lesson17 = () => {
 
   const playAudio = () => {
     setIsAudioPlaying(true);
-    setTimeout(() => setIsAudioPlaying(false), 2000);
-    toast({
-      title: "Playing audio...",
-      description: "Audio feature coming soon!",
+    const word = LESSON17_WORDS[currentWordIndex].mongolian;
+    const audio = new Audio(`/audio/lesson17/${word}.mp3`);
+    
+    audio.onended = () => {
+      setIsAudioPlaying(false);
+    };
+
+    audio.onerror = () => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
+    };
+
+    audio.play().catch((error) => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
     });
   };
 

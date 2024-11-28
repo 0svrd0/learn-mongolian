@@ -1,26 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
-const WEATHER = [
-  { mongolian: "Цаг агаар", pronunciation: "Tsag agaar", meaning: "Weather" },
-  { mongolian: "Халуун", pronunciation: "Khaluun", meaning: "Hot" },
-  { mongolian: "Хүйтэн", pronunciation: "Khüiten", meaning: "Cold" },
-  { mongolian: "Дулаан", pronunciation: "Dulaan", meaning: "Warm" },
-  { mongolian: "Сэрүүн", pronunciation: "Serüün", meaning: "Cool" },
-  { mongolian: "Бороо", pronunciation: "Boroo", meaning: "Rain" },
-  { mongolian: "Цас", pronunciation: "Tsas", meaning: "Snow" },
-  { mongolian: "Салхи", pronunciation: "Salkhi", meaning: "Wind" },
-  { mongolian: "Нар", pronunciation: "Nar", meaning: "Sun" },
-  { mongolian: "Үүл", pronunciation: "Üül", meaning: "Cloud" },
-  { mongolian: "Аянга", pronunciation: "Ayanga", meaning: "Thunder" },
-  { mongolian: "Цахилгаан", pronunciation: "Tsakhilgaan", meaning: "Lightning" },
-  { mongolian: "Манан", pronunciation: "Manan", meaning: "Fog" },
-  { mongolian: "Шуурга", pronunciation: "Shuurga", meaning: "Storm" },
-  { mongolian: "Мөндөр", pronunciation: "Möndör", meaning: "Hail" }
-];
+import { LESSON9_WORDS } from "@/data/vocabulary";
 
 const Lesson9 = () => {
   const { toast } = useToast();
@@ -30,24 +13,43 @@ const Lesson9 = () => {
 
   const playAudio = () => {
     setIsAudioPlaying(true);
-    setTimeout(() => setIsAudioPlaying(false), 2000);
-    toast({
-      title: "Playing audio...",
-      description: "Audio feature coming soon!",
+    const word = LESSON9_WORDS[currentWordIndex].mongolian;
+    const audio = new Audio(`/audio/lesson9/${word}.mp3`);
+    
+    audio.onended = () => {
+      setIsAudioPlaying(false);
+    };
+
+    audio.onerror = () => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
+    };
+
+    audio.play().catch((error) => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
     });
   };
 
   const nextWord = () => {
-    setCurrentWordIndex((prev) => (prev + 1) % WEATHER.length);
+    setCurrentWordIndex((prev) => (prev + 1) % LESSON9_WORDS.length);
   };
 
   const previousWord = () => {
     setCurrentWordIndex((prev) => 
-      (prev - 1 + WEATHER.length) % WEATHER.length
+      (prev - 1 + LESSON9_WORDS.length) % LESSON9_WORDS.length
     );
   };
 
-  const currentWord = WEATHER[currentWordIndex];
+  const currentWord = LESSON9_WORDS[currentWordIndex];
 
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
@@ -139,7 +141,7 @@ const Lesson9 = () => {
 
         <div className="mt-8">
           <p className="text-sm text-gray-500 text-center">
-            Progress: {currentWordIndex + 1} / {WEATHER.length}
+            Progress: {currentWordIndex + 1} / {LESSON9_WORDS.length}
           </p>
         </div>
       </div>

@@ -1,26 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
-const SHOPPING = [
-  { mongolian: "Дэлгүүр", pronunciation: "Delgüür", meaning: "Shop/Store" },
-  { mongolian: "Үнэ", pronunciation: "Üne", meaning: "Price" },
-  { mongolian: "Мөнгө", pronunciation: "Möngö", meaning: "Money" },
-  { mongolian: "Төгрөг", pronunciation: "Tögrög", meaning: "Tugrik (currency)" },
-  { mongolian: "Хямд", pronunciation: "Khyamd", meaning: "Cheap" },
-  { mongolian: "Үнэтэй", pronunciation: "Ünetei", meaning: "Expensive" },
-  { mongolian: "Худалдах", pronunciation: "Khudaldakh", meaning: "To sell" },
-  { mongolian: "Авах", pronunciation: "Avakh", meaning: "To buy" },
-  { mongolian: "Төлөх", pronunciation: "Tölökh", meaning: "To pay" },
-  { mongolian: "Карт", pronunciation: "Kart", meaning: "Card" },
-  { mongolian: "Бэлэн мөнгө", pronunciation: "Belen möngö", meaning: "Cash" },
-  { mongolian: "Баримт", pronunciation: "Barimt", meaning: "Receipt" },
-  { mongolian: "Хямдрал", pronunciation: "Khyamdral", meaning: "Discount" },
-  { mongolian: "Сагс", pronunciation: "Sags", meaning: "Shopping basket" },
-  { mongolian: "Тасалбар", pronunciation: "Tasalbar", meaning: "Ticket" }
-];
+import { LESSON8_WORDS } from "@/data/vocabulary";
 
 const Lesson8 = () => {
   const { toast } = useToast();
@@ -30,24 +13,43 @@ const Lesson8 = () => {
 
   const playAudio = () => {
     setIsAudioPlaying(true);
-    setTimeout(() => setIsAudioPlaying(false), 2000);
-    toast({
-      title: "Playing audio...",
-      description: "Audio feature coming soon!",
+    const word = LESSON8_WORDS[currentWordIndex].mongolian;
+    const audio = new Audio(`/audio/lesson8/${word}.mp3`);
+    
+    audio.onended = () => {
+      setIsAudioPlaying(false);
+    };
+
+    audio.onerror = () => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
+    };
+
+    audio.play().catch((error) => {
+      setIsAudioPlaying(false);
+      toast({
+        title: "Error",
+        description: "Could not play the audio file",
+        variant: "destructive",
+      });
     });
   };
 
   const nextWord = () => {
-    setCurrentWordIndex((prev) => (prev + 1) % SHOPPING.length);
+    setCurrentWordIndex((prev) => (prev + 1) % LESSON8_WORDS.length);
   };
 
   const previousWord = () => {
     setCurrentWordIndex((prev) => 
-      (prev - 1 + SHOPPING.length) % SHOPPING.length
+      (prev - 1 + LESSON8_WORDS.length) % LESSON8_WORDS.length
     );
   };
 
-  const currentWord = SHOPPING[currentWordIndex];
+  const currentWord = LESSON8_WORDS[currentWordIndex];
 
   return (
     <div className="min-h-screen bg-mongol-cream p-8">
@@ -82,7 +84,7 @@ const Lesson8 = () => {
                 </div>
               </div>
 
-              <div className="text-center space-y-4  w-full max-w-md">
+              <div className="text-center space-y-4 w-full max-w-md">
                 <p className="text-xl font-medium">
                   Pronunciation: "{currentWord.pronunciation}"
                 </p>
@@ -139,7 +141,7 @@ const Lesson8 = () => {
 
         <div className="mt-8">
           <p className="text-sm text-gray-500 text-center">
-            Progress: {currentWordIndex + 1} / {SHOPPING.length}
+            Progress: {currentWordIndex + 1} / {LESSON8_WORDS.length}
           </p>
         </div>
       </div>
