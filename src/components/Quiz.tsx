@@ -5,11 +5,13 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import { shuffle } from "@/utils/arrayUtils";
+import { Headphones } from "lucide-react";
 
 interface Word {
   mongolian: string;
   pronunciation: string;
   meaning: string;
+  audio?: string;
 }
 
 interface QuizProps {
@@ -33,9 +35,18 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
   const normalizeString = (str: string) => {
     return str
       .toLowerCase()
-      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "")
-      .replace(/\s+/g, " ")
+      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()'"]/g, "")
+      .replace(/\s+/g, "")
       .trim();
+  };
+
+  const playAudio = (audioSrc?: string) => {
+    if (audioSrc) {
+      const audio = new Audio(audioSrc);
+      audio.play().catch(error => {
+        console.error("Error playing audio:", error);
+      });
+    }
   };
 
   const currentWord = shuffledWords[currentWordIndex];
@@ -104,23 +115,26 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
 
   return (
     <Card className="p-6 max-w-xl mx-auto">
-      <div className="flex justify-between items-center mb-4">
-        <Button 
-          variant="outline" 
-          onClick={() => navigate(`/lesson/${lessonNumber}`)}
-          className="mb-4"
-        >
-          Back to Lesson
-        </Button>
-        <h2 className="text-2xl font-bold text-center">
-          Lesson {lessonNumber} Quiz
-        </h2>
-      </div>
+      <h2 className="text-2xl font-bold text-center mb-4">
+        Lesson {lessonNumber} Quiz
+      </h2>
       <p className="text-center mb-2">
         Question {currentWordIndex + 1} of {shuffledWords.length}
       </p>
       <div className="text-center mb-6">
-        <p className="text-xl font-bold mb-2">{currentWord.mongolian}</p>
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <p className="text-xl font-bold">{currentWord.mongolian}</p>
+          {currentWord.audio && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => playAudio(currentWord.audio)}
+              className="p-1"
+            >
+              <Headphones className="h-4 w-4" />
+            </Button>
+          )}
+        </div>
         <p className="text-gray-600">Pronunciation: {currentWord.pronunciation}</p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -140,6 +154,14 @@ const Quiz = ({ words, lessonNumber }: QuizProps) => {
       </form>
       <div className="mt-4 text-center text-sm text-gray-600">
         Score: {score}/{currentWordIndex}
+      </div>
+      <div className="mt-6 text-center">
+        <Button 
+          variant="outline" 
+          onClick={() => navigate(`/lesson/${lessonNumber}`)}
+        >
+          Back to Lesson
+        </Button>
       </div>
     </Card>
   );
